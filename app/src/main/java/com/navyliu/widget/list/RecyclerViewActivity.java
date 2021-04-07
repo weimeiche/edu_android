@@ -1,6 +1,7 @@
 package com.navyliu.widget.list;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.navyliu.widget.R;
 import com.navyliu.widget.swipeToLoadLayout.OnLoadMoreListener;
@@ -36,7 +38,6 @@ public class RecyclerViewActivity extends AppCompatActivity
         recyclerView = (RecyclerView) this.findViewById(R.id.swipe_target);
         mHeaderView = LayoutInflater.from(this).inflate(R.layout.view_header, null);
         mFooterView = LayoutInflater.from(this).inflate(R.layout.view_footer_loading, null);
-
 
         /**
          * 初始化数据源

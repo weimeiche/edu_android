@@ -1,15 +1,13 @@
 package com.navyliu.widget;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatTextView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.text.Html;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
@@ -19,19 +17,16 @@ import android.text.style.ForegroundColorSpan;
 import android.text.style.StrikethroughSpan;
 import android.text.style.URLSpan;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.navyliu.widget.activity.activity;
 import com.navyliu.widget.grid.GridActivity;
 import com.navyliu.widget.list.RecyclerViewActivity;
-
-import java.lang.reflect.Field;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -48,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
     private CustomTitleBar titleBar;
     private Button leftTitleBtn;
+    private ConstraintLayout constraintLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +59,17 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+//        ConstraintLayout.LayoutParams layoutParams = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
+//        int bottomToTop = layoutParams.bottomToTop;
+//        Button button = new Button(this);
+//        layoutParams.leftToRight = leftTitleBtn.getId();
+
+
+
+//        constraintLayout = (ConstraintLayout)this.findViewById(R.id.constraint);
+//        View view = LayoutInflater.from(this).inflate(R.layout.view_header, null);
+//        constraintLayout.addView(view);
 
 
 //        textView = (AppCompatTextView) this.findViewById(R.id.textview);
@@ -187,6 +194,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_recycler:
                 Intent recyclerIntent = new Intent(this, RecyclerViewActivity.class);
                 startActivity(recyclerIntent);
+                break;
+            case R.id.btn_activity:
+                Intent activityIntent = new Intent(this, activity.class);
+                startActivity(activityIntent);
                 break;
         }
     }

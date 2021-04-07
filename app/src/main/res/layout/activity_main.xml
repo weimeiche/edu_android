@@ -18,6 +18,13 @@
         app:title_text_color="@color/navi_title_hover" />
 
     <Button
+        android:id="@+id/btn_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onclick"
+        android:text="第4章第一节课Activity" />
+
+    <Button
         android:id="@+id/btn_iamgeview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
