@@ -17,7 +17,6 @@ import android.text.style.ForegroundColorSpan;
 import android.text.style.StrikethroughSpan;
 import android.text.style.URLSpan;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,6 +26,7 @@ import android.widget.Toast;
 import com.navyliu.widget.activity.activity;
 import com.navyliu.widget.grid.GridActivity;
 import com.navyliu.widget.list.RecyclerViewActivity;
+import com.navyliu.widget.unit4Lsn2Fragment.FragmentActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -64,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
 //        int bottomToTop = layoutParams.bottomToTop;
 //        Button button = new Button(this);
 //        layoutParams.leftToRight = leftTitleBtn.getId();
-
 
 
 //        constraintLayout = (ConstraintLayout)this.findViewById(R.id.constraint);
@@ -195,9 +194,13 @@ public class MainActivity extends AppCompatActivity {
                 Intent recyclerIntent = new Intent(this, RecyclerViewActivity.class);
                 startActivity(recyclerIntent);
                 break;
-            case R.id.btn_activity:
+            case R.id.btn_activity: // 跳转到第4章第一节课Activity
                 Intent activityIntent = new Intent(this, activity.class);
                 startActivity(activityIntent);
+                break;
+            case R.id.btn_fragment: // 跳转到第4章第二节课Fragment
+                Intent fragmentIntent = new Intent(this, FragmentActivity.class);
+                startActivity(fragmentIntent);
                 break;
         }
     }
