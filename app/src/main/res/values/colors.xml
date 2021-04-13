@@ -12,4 +12,7 @@
     <color name="transparent">#00000000</color>
     <color name="bg_dialog">#55000000</color>
 
+
+    <color name="red">#ff0000</color>
+
 </resources>

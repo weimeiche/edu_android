@@ -26,7 +26,10 @@ import android.widget.Toast;
 import com.navyliu.widget.activity.activity;
 import com.navyliu.widget.grid.GridActivity;
 import com.navyliu.widget.list.RecyclerViewActivity;
+import com.navyliu.widget.test.TestActivity;
 import com.navyliu.widget.unit4Lsn2Fragment.FragmentActivity;
+import com.navyliu.widget.unit5Lsn1SharePreferences.SharePreferencesActivity;
+import com.navyliu.widget.unit5Lsn2Sqlite.SqliteActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
     private CustomTitleBar titleBar;
     private Button leftTitleBtn;
+    private Button rightTitleBtn;
     private ConstraintLayout constraintLayout;
 
     @Override
@@ -51,12 +55,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         titleBar = (CustomTitleBar) findViewById(R.id.title_bar);
-        leftTitleBtn = titleBar.getTitleBarLeftBtn();
-        leftTitleBtn.setText("123");
-        leftTitleBtn.setOnClickListener(new View.OnClickListener() {
+        rightTitleBtn = titleBar.getTitleBarRightBtn();
+        rightTitleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MainActivity.this, TestActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -201,6 +205,14 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_fragment: // 跳转到第4章第二节课Fragment
                 Intent fragmentIntent = new Intent(this, FragmentActivity.class);
                 startActivity(fragmentIntent);
+                break;
+            case R.id.btn_sharepreferences: // 第5章 数据存储第一节课SharePreferences
+                Intent sharePreferencesIntent = new Intent(this, SharePreferencesActivity.class);
+                startActivity(sharePreferencesIntent);
+                break;
+            case R.id.btn_sqlite: // 第5章 数据存储第二节课SQLite
+                Intent sqliteIntent = new Intent(this, SqliteActivity.class);
+                startActivity(sqliteIntent);
                 break;
         }
     }

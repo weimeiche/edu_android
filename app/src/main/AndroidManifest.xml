@@ -1,17 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.navyliu.widget">
 
     <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <uses-permission
+        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".unit4Lsn2Fragment.AActivity"></activity>
-        <activity android:name=".unit4Lsn2Fragment.BActivity"></activity>
+        <activity android:name=".unit5Lsn2Sqlite.SqliteActivity"></activity>
+        <!-- android:requestLegacyExternalStorage="true" -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.navyliu.widget.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity android:name=".unit5Lsn1SharePreferences.SharePreferencesActivity" />
+        <activity android:name=".homeword.HomewordActivity" />
+        <activity android:name=".test.TestActivity" />
+        <activity android:name=".unit4Lsn2Fragment.AActivity" />
+        <activity android:name=".unit4Lsn2Fragment.BActivity" />
         <activity android:name=".unit4Lsn2Fragment.FragmentActivity" />
         <activity
             android:name=".activity.SeconedActivity"

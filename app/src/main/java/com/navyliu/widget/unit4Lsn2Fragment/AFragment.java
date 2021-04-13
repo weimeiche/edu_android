@@ -77,6 +77,7 @@ public class AFragment extends Fragment implements View.OnClickListener {
     }
 
     public void setFragmentListener(FragmentListener listener) {
+
         this.fragmentListener = listener;
     }
 
