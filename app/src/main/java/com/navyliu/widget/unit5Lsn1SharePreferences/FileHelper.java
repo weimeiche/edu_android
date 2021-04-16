@@ -29,9 +29,7 @@ class FileHelper {
      */
     public void save(String filename, String content) throws IOException {
         // 设置为私有模式，创建出来的文件只能被本应用访问，同时会覆盖源文件
-        FileOutputStream fileOutputStream =
-                mContext.openFileOutput(filename
-                        , Context.MODE_PRIVATE);
+        FileOutputStream fileOutputStream = mContext.openFileOutput(filename, Context.MODE_PRIVATE);
         // 将String字符串以字节流的形式写入到输出流中
         fileOutputStream.write(content.getBytes());
         // 关闭输出流
@@ -39,13 +37,10 @@ class FileHelper {
     }
 
     public void append(String filename, String content) throws IOException {
-        FileOutputStream fileOutputStream =
-                mContext.openFileOutput(filename
-                        , Context.MODE_APPEND);
+        FileOutputStream fileOutputStream = mContext.openFileOutput(filename, Context.MODE_APPEND);
         fileOutputStream.write(content.getBytes());
         fileOutputStream.close();
     }
-
 
     /**
      * 读取文件内容
