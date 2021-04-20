@@ -171,7 +171,7 @@ public class SqliteActivity extends AppCompatActivity {
 
         // 或者使用sql语句删除
 //        id += 999999;
-//        String sql = "DELETE friend WHERE id = '" + id + "'";
+//        String sql = "DELETE FROM friend WHERE id = '" + id + "'";
 //        database.execSQL(sql);
 
         Toast.makeText(this, "数据删除成功", Toast.LENGTH_LONG).show();

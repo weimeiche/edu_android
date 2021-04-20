@@ -23,181 +23,62 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.navyliu.widget.activity.activity;
-import com.navyliu.widget.grid.GridActivity;
-import com.navyliu.widget.list.RecyclerViewActivity;
+import com.navyliu.widget.unit4Lsn1Activity.activity;
+import com.navyliu.widget.unit3Lsn4RecyclerView.RecyclerViewActivity;
 import com.navyliu.widget.test.TestActivity;
+import com.navyliu.widget.unit2Lsn1Layout.LayoutActivity;
+import com.navyliu.widget.unit2Lsn3Resource.ResourceActivity;
+import com.navyliu.widget.unit3Lsn1Textview.TextviewActivity;
+import com.navyliu.widget.unit3Lsn2EditViewButton.EditViewActivity;
+import com.navyliu.widget.unit3Lsn3ImageView.ImageViewWidgetActivity;
 import com.navyliu.widget.unit4Lsn2Fragment.FragmentActivity;
 import com.navyliu.widget.unit5Lsn1SharePreferences.SharePreferencesActivity;
 import com.navyliu.widget.unit5Lsn2Sqlite.SqliteActivity;
+import com.navyliu.widget.unit6Lsn1ContentProvider.ContentProviderActivity;
+import com.navyliu.widget.unit7Lsn1BradcaseReceiver.BroadcastReceiverActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     private final String TAG = this.getClass().getName();
-    // 定义控件
-    private AppCompatTextView textView;
-    private TextView htmlTxt;
-    private TextView autoTxt;
-    private TextView drawableTxt;
-    private TextView shenlueTxt;
-    private TextView spanTxt;
-    private EditText edit;
-    private Button btn;
-
-    private CustomTitleBar titleBar;
-    private Button leftTitleBtn;
-    private Button rightTitleBtn;
-    private ConstraintLayout constraintLayout;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        titleBar = (CustomTitleBar) findViewById(R.id.title_bar);
-        rightTitleBtn = titleBar.getTitleBarRightBtn();
-        rightTitleBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, TestActivity.class);
-                startActivity(intent);
-            }
-        });
-
-//        ConstraintLayout.LayoutParams layoutParams = new ConstraintLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
-//        int bottomToTop = layoutParams.bottomToTop;
-//        Button button = new Button(this);
-//        layoutParams.leftToRight = leftTitleBtn.getId();
-
-
-//        constraintLayout = (ConstraintLayout)this.findViewById(R.id.constraint);
-//        View view = LayoutInflater.from(this).inflate(R.layout.view_header, null);
-//        constraintLayout.addView(view);
-
-
-//        textView = (AppCompatTextView) this.findViewById(R.id.textview);
-//        htmlTxt = (TextView) this.findViewById(R.id.txt_html);
-//        autoTxt = (TextView) this.findViewById(R.id.txt_auto);
-//        drawableTxt = (TextView) this.findViewById(R.id.txt_drawable);
-//        shenlueTxt = (TextView) this.findViewById(R.id.txt_shenglue);
-        spanTxt = (TextView) this.findViewById(R.id.txt_span);
-        edit = (EditText) this.findViewById(R.id.edit1);
-        edit.requestFocus();
-        btn = (Button) this.findViewById(R.id.btn);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.btn:
-                        Log.d(TAG, "onClick: =====btn");
-                        break;
-                }
-            }
-        });
-
-
-        String str = "背景色背景色前景色字体颜色删除线15086646341";
-        str += "点击事件";
-        SpannableString span = new SpannableString(str);
-        span.setSpan(new BackgroundColorSpan(Color.RED)
-                , 2, 5, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        span.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.blue))
-                , 6, 10, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        span.setSpan(new StrikethroughSpan()
-                , 13, 16, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        span.setSpan(new URLSpan("tel:15086646341")
-                , 16, 27, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        span.setSpan(new ClickableSpan() {
-            @Override
-            public void onClick(@NonNull View widget) {
-                Toast.makeText(MainActivity.this, R.string.app_name, Toast.LENGTH_LONG).show();
-            }
-        }, 27, 31, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-        spanTxt.setClickable(true);
-        spanTxt.setMovementMethod(LinkMovementMethod.getInstance());
-        spanTxt.setText(span);
-
-
-//        // textview实现走马灯效果
-//        shenlueTxt.setSelected(true);
-//
-//        // textview显示drawable资源图片
-//        Drawable drawable_left = getResources().getDrawable(R.drawable.btn_textview);
-//        drawable_left.setBounds(0, 0, drawable_left.getIntrinsicWidth(), drawable_left.getIntrinsicHeight());
-//        drawableTxt.setCompoundDrawables(drawable_left, drawable_left, drawable_left, drawable_left);
-//        drawableTxt.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(MainActivity.this, "----", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//
-//        // textview自动拨打电话
-//        autoTxt.setText("15086646341");
-//        // textview显示阴影
-//        textView.setText("<斗罗大陆>");
-//
-//        // textview设置编译显示简单的html便签
-//        String str = "内<font color=red>事</font><small>问</small><big>百度</big><br><i>外事</i><b>问</b>谷歌<a href='http://www.baidu.com/'>百度一下</a><img src='emoji_9' />";
-//        htmlTxt.setClickable(true);
-//        htmlTxt.setMovementMethod(LinkMovementMethod.getInstance());
-//
-//        //textview中设置显示html中的img资源图片
-//        htmlTxt.setText(Html.fromHtml(str, new Html.ImageGetter() {
-//            @Override
-//            public Drawable getDrawable(String source) {
-//                Drawable drawable = null;
-//                try {
-//                    Field field = R.mipmap.class.getField(source);
-//                    int id = field.getInt(null);
-//                    drawable = getResources().getDrawable(id);
-//                    drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-//                } catch (NoSuchFieldException e) {
-//                    e.printStackTrace();
-//                } catch (IllegalAccessException e) {
-//                    e.printStackTrace();
-//                }
-//                return drawable;
-//            }
-//        }, null));
     }
 
 
     public void onclick(View view) {
         switch (view.getId()) {
-            case R.id.btn_iamgeview:
-                Intent intent = new Intent(this, ImageViewActivity.class);
-                startActivity(intent);
+            case R.id.btn_layout: // 第2章 第一节课布局layout
+                Intent layoutIntent = new Intent(this, LayoutActivity.class);
+                startActivity(layoutIntent);
                 break;
-            case R.id.btn_radio:
-                Intent radioIntent = new Intent(this, RadioButtonActivity.class);
-                startActivity(radioIntent);
+            case R.id.btn_view: // 第2章 第二节课布局layout
+                Intent viewIntent = new Intent(this, com.navyliu.widget.unit2Lsn2Layout.LayoutActivity.class);
+                startActivity(viewIntent);
                 break;
-            case R.id.btn_switch:
-                Intent switchIntent = new Intent(this, SwitchActivity.class);
-                startActivity(switchIntent);
+            case R.id.btn_resource: // 第2章 第二节课布局资源文件
+                Intent resourceIntent = new Intent(this, ResourceActivity.class);
+                startActivity(resourceIntent);
                 break;
-            case R.id.btn_seekbar:
-                Intent seekBarIntent = new Intent(this, SeekBarActivity.class);
-                startActivity(seekBarIntent);
+            case R.id.btn_textview: // 第3章 第一节课常见控件TextView
+                Intent textviewIntent = new Intent(this, TextviewActivity.class);
+                startActivity(textviewIntent);
                 break;
-            case R.id.btn_progress:
-                Intent progressIntent = new Intent(this, ProgressBarActivity.class);
-                startActivity(progressIntent);
+            case R.id.btn_editview: // 第3章 第二节课常见控件Editview/Button
+                Intent editIntent = new Intent(this, EditViewActivity.class);
+                startActivity(editIntent);
                 break;
-            case R.id.btn_rating:
-                Intent ratingIntent = new Intent(this, RatingBarActivity.class);
-                startActivity(ratingIntent);
+            case R.id.btn_widget: // 第3章 第三节课其他常见控件
+                Intent widgetIntent = new Intent(this, ImageViewWidgetActivity.class);
+                startActivity(widgetIntent);
                 break;
-            case R.id.btn_grideview:
-                Intent gridIntent = new Intent(this, GridActivity.class);
-                startActivity(gridIntent);
-                break;
-            case R.id.btn_recycler:
+            case R.id.btn_recyclerview: // 第3章 第四节课RecyclerView
+//                startActivity(new Intent(this, GridActivity.class));  // 跳转到网格布局
                 Intent recyclerIntent = new Intent(this, RecyclerViewActivity.class);
                 startActivity(recyclerIntent);
                 break;
+
             case R.id.btn_activity: // 跳转到第4章第一节课Activity
                 Intent activityIntent = new Intent(this, activity.class);
                 startActivity(activityIntent);
@@ -213,6 +94,14 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_sqlite: // 第5章 数据存储第二节课SQLite
                 Intent sqliteIntent = new Intent(this, SqliteActivity.class);
                 startActivity(sqliteIntent);
+                break;
+            case R.id.btn_content_provider: // 第6章 内容提供者ContentProvider
+                Intent providerIntent = new Intent(this, ContentProviderActivity.class);
+                startActivity(providerIntent);
+                break;
+            case R.id.btn_broadcast_receiver: // 第7章 广播接收者BroadcastReceiver
+                Intent broadcastIntent = new Intent(this, BroadcastReceiverActivity.class);
+                startActivity(broadcastIntent);
                 break;
         }
     }

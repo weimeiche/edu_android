@@ -1,188 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <com.navyliu.widget.CustomTitleBar
-        android:id="@+id/title_bar"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:left_button_text="返回"
-        app:left_button_visible="true"
-        app:right_button_text="分享"
-        app:right_button_visible="true"
-        app:title_background_color="@color/blue"
-        app:title_text="自定义导航栏"
-        app:title_text_color="@color/navi_title_hover" />
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_sqlite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onclick"
-        android:text="第5章 数据存储第二节课SQLite" />
-    <Button
-        android:id="@+id/btn_sharepreferences"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onclick"
-        android:text="第5章 数据存储第一节课SharePreferences" />
+        <Button
+            android:id="@+id/btn_broadcast_receiver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第7章 广播接收者BroadcastReceiver"
+            android:visibility="gone" />
 
-    <Button
-        android:id="@+id/btn_fragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onclick"
-        android:text="第4章第二节课Fragment" />
+        <Button
+            android:id="@+id/btn_content_provider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第6章 内容提供者ContentProvider" />
 
-    <Button
-        android:id="@+id/btn_activity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onclick"
-        android:text="第4章第一节课Activity" />
+        <Button
+            android:id="@+id/btn_sqlite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第5章 数据存储第二节课SQLite" />
 
-    <Button
-        android:id="@+id/btn_iamgeview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onclick"
-        android:text="图片控件" />
+        <Button
+            android:id="@+id/btn_sharepreferences"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第5章 数据存储第一节课SharePreferences" />
 
-    <Button
-        android:id="@+id/btn_radio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onclick"
-        android:text="RadionButton控件" />
+        <Button
+            android:id="@+id/btn_fragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第4章第二节课Fragment" />
 
-    <Button
-        android:id="@+id/btn_switch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onclick"
-        android:text="Swithch控件" />
+        <Button
+            android:id="@+id/btn_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第4章第一节课Activity" />
 
-    <Button
-        android:id="@+id/btn_seekbar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onclick"
-        android:text="SeekBar控件" />
+        <Button
+            android:id="@+id/btn_recyclerview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第3章 第四节课RecyclerView" />
 
-    <Button
-        android:id="@+id/btn_progress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onclick"
-        android:text="ProgreeBar控件" />
+        <Button
+            android:id="@+id/btn_widget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第3章 第三节课其他常见控件" />
 
-    <Button
-        android:id="@+id/btn_rating"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onclick"
-        android:text="RatingBar控件" />
+        <Button
+            android:id="@+id/btn_editview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第3章 第二节课常见控件Editview/Button" />
 
-    <Button
-        android:id="@+id/btn_grideview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onclick"
-        android:text="GridView控件" />
+        <Button
+            android:id="@+id/btn_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第3章 第一节课常见控件TextView" />
 
-    <Button
-        android:id="@+id/btn_recycler"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onclick"
-        android:text="Recyclerview控件" />
+        <Button
+            android:id="@+id/btn_resource"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第2章 第三节课布局资源文件" />
 
+        <Button
+            android:id="@+id/btn_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第2章 第二节课布局layout" />
 
-    <Button
-        android:id="@+id/btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="false"
-        android:text="按钮" />
+        <Button
+            android:id="@+id/btn_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第2章 第一节课布局layout" />
 
-    <EditText
-        android:id="@+id/edit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="请输入密码"
-        android:imeOptions="actionSend"
-        android:inputType="number"
-        android:selectAllOnFocus="true"
-        android:textColorHint="@color/blue" />
-
-    <EditText
-        android:id="@+id/edit1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:focusable="true"
-        android:hint="请输入密码"
-        android:selectAllOnFocus="true"
-        android:textColorHint="@color/blue" />
-
-    <TextView
-        android:id="@+id/txt_span"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="20sp" />
-
-    <!--    <com.navyliu.widget.CustomTitleBar-->
-    <!--        android:id="@+id/bar_title"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="42dp"-->
-    <!--        app:left_button_text="返回"-->
-    <!--        app:left_button_visible="true"-->
-    <!--        app:title_background_color="@color/colorAccent"-->
-    <!--        app:title_text="商户申请开通" />-->
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/txt_shenglue"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:ellipsize="marquee"-->
-    <!--        android:marqueeRepeatLimit="marquee_forever"-->
-    <!--        android:maxLines="2"-->
-    <!--        android:singleLine="true"-->
-    <!--        android:text="图片图片图片图片图片图片图片图片图片图片图片图片图片图片图片图片图片图片图片图片图片图片图片图片图片"-->
-    <!--        android:textSize="40sp" />-->
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/txt_drawable"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="图片" />-->
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/txt_auto"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:autoLink="phone" />-->
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/txt_html"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:textSize="20sp" />-->
-
-    <!--    <androidx.appcompat.widget.AppCompatTextView-->
-    <!--        android:id="@+id/textview"-->
-    <!--        android:layout_width="0dp"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:gravity="center"-->
-    <!--        android:shadowColor="@color/blue"-->
-    <!--        android:shadowDx="10"-->
-    <!--        android:shadowDy="10"-->
-    <!--        android:shadowRadius="0.1"-->
-    <!--        android:textColor="@color/colorAccent"-->
-    <!--        android:textSize="40sp"-->
-    <!--        android:textStyle="bold|italic" />-->
-
-
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

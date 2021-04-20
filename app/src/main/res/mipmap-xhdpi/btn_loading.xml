@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android">
+<!--    duration：图片显示时长-->
+<!--    drawable：图片位置-->
+<!--    mipmap：目录是一个目录集合，Android系统会根据当前手机尺寸来调用不同目录下的图片资源-->
+<!--    mipmap：包括        ldpi，      mdpi,    hdpi,   xhdpi,     xxhdpi,     xxxhdpi六个目录，部分项目无ldpi，尺寸太小已经取消-->
+<!--    logo：对应尺寸分明为36*36，     48*48，  72*72,   96*96,     144*144,     192*192-->
+<!--    标志屏幕：          240x320，   320x480, 480x800, 720x1280,   1080x1920，  平板及以上设备-->
+<!--    如果使用的是矢量图，或者对要求不高，可以只放一套图片，一般放在xhdpi目录下，其他目录不放相同的图片也可以，这样可以有效缩小APP的体积-->
+<!--    APP查找对应图片(eg:mipmap/loading_1),首先去和手机尺寸匹配的文件夹寻找的mipmap图片资源文件，如果没有找到，就会到就近的文件夹寻找，直至找到相同name（不含后缀名）的图片资源文件-->
+    <item
+        android:drawable="@mipmap/loading_1"
+        android:duration="100" />
+    <item
+        android:drawable="@mipmap/loading_2"
+        android:duration="100" />
+    <item
+        android:drawable="@mipmap/loading_3"
+        android:duration="100" />
+    <item
+        android:drawable="@mipmap/loading_4"
+        android:duration="100" />
+</animation-list>

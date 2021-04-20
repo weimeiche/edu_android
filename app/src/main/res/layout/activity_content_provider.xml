@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".unit6Lsn1ContentProvider.ContentProviderActivity">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onclick"
+        android:text="插入ContentProvider数据"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_query"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onclick"
+        android:text="获取ContentProvider数据"
+        app:layout_constraintLeft_toRightOf="@id/btn_add"
+        app:layout_constraintTop_toTopOf="@id/btn_add" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_sms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onclick"
+        android:text="获取短信"
+        app:layout_constraintLeft_toLeftOf="@id/edit"
+        app:layout_constraintTop_toBottomOf="@id/edit" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_contants"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onclick"
+        android:text="获取联系人"
+        app:layout_constraintLeft_toRightOf="@id/btn_sms"
+        app:layout_constraintTop_toTopOf="@id/btn_sms" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_query_contacts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onclick"
+        android:text="查询联系人"
+        app:layout_constraintLeft_toRightOf="@id/btn_contants"
+        app:layout_constraintTop_toTopOf="@id/btn_contants" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

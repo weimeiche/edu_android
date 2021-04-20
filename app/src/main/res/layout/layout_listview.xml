@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.navyliu.widget.swipeToLoadLayout.SwipeToLoadLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.navyliu.widget.unit3Lsn4RecyclerView.swipeToLoadLayout.SwipeToLoadLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/swipeToLoadLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -17,7 +17,7 @@
     <include
         android:id="@+id/swipe_load_more_footer"
         layout="@layout/view_footer_loading" />
-</com.navyliu.widget.swipeToLoadLayout.SwipeToLoadLayout>
+</com.navyliu.widget.unit3Lsn4RecyclerView.swipeToLoadLayout.SwipeToLoadLayout>
 
 
 

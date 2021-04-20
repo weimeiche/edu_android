@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--    透明度  -->
+    <!--    duration:持续时间 -->
+    <!--    fromAlpha: 开始时的透明度，透明度的取值范围为0-1（0：完全透明，1：完全不透明）-->
+    <!--    toAlpha：结束时的透明度-->
+    <alpha
+        android:duration="2000"
+        android:fromAlpha="0.3"
+        android:toAlpha="1" />
+    <!--    缩放-->
+    <!--    duration：持续时间-->
+    <!--    fromXScale：动画开始时x轴和控件(或布局)原尺寸的缩放比例，1为原始大小-->
+    <!--    toXScale：动画结束时x轴和控件(或布局)原尺寸的缩放比例，1为原始大小-->
+    <!--    fromYScale：动画开始时Y轴和控件(或布局)原尺寸的缩放比例，1为原始大小-->
+    <!--    toYScale：动画结束时Y轴和控件(或布局)原尺寸的缩放比例，1为原始大小-->
+    <!--    pivotX：缩放时x轴上的中心点-->
+    <!--    pivotY：缩放时Y轴上的中心点-->
+    <scale
+        android:duration="2000"
+        android:fromXScale="1"
+        android:fromYScale="1"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:toXScale="2"
+        android:toYScale="2" />
+    <!--    旋转-->
+    <!--    duration：持续时间-->
+    <!--    pivotX：缩放时x轴上的中心点-->
+    <!--    pivotY：缩放时Y轴上的中心点-->
+    <!--    fromDegrees：动画开始时的角度-->
+    <!--    toDegrees：动画结束时的角度-->
+    <rotate
+        android:duration="2000"
+        android:fromDegrees="0"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:toDegrees="360" />
+    <!--    平移-->
+    <!--    duration：持续时间-->
+    <!--    fromXDelta:动画开始时X轴的位置比例（1：原始位置；正数右移，负数左移）-->
+    <!--    toXDelta：动画开始时Y轴的位置比例（1：原始位置；正数右移，负数左移）-->
+    <!--    fromYDelta:动画开始时Y轴位置的比例（1：原始位置；正数下移，负数上移）-->
+    <!--    toYDelta:动画结束时Y轴位置的比例（1：原始位置；正数下移，负数上移）-->
+    <translate
+        android:duration="2000"
+        android:fromXDelta="-30%"
+        android:fromYDelta="-30%"
+        android:toXDelta="30%"
+        android:toYDelta="30%" />
+
+</set>
