@@ -64,7 +64,7 @@ public class UserContentProvider extends ContentProvider {
             // 添加用户记录
             long rowId = database.insert("user", null, values);
             Log.d(TAG, "insert: =====" + rowId);
-            // 学生用户添加成功
+            // 用户添加成功
             if (rowId > 0) {
                 // 在前面已有的Uri后面追加ID
                 Uri userUri = ContentUris.withAppendedId(uri, rowId);

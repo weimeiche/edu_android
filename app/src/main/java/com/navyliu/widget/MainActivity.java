@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent viewIntent = new Intent(this, com.navyliu.widget.unit2Lsn2Layout.LayoutActivity.class);
                 startActivity(viewIntent);
                 break;
-            case R.id.btn_resource: // 第2章 第二节课布局资源文件
+            case R.id.btn_resource: // 第2章 第三节课布局资源文件
                 Intent resourceIntent = new Intent(this, ResourceActivity.class);
                 startActivity(resourceIntent);
                 break;
@@ -79,19 +79,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(recyclerIntent);
                 break;
 
-            case R.id.btn_activity: // 跳转到第4章第一节课Activity
+            case R.id.btn_activity: // 第4章 第一节课Activity
                 Intent activityIntent = new Intent(this, activity.class);
                 startActivity(activityIntent);
                 break;
-            case R.id.btn_fragment: // 跳转到第4章第二节课Fragment
+            case R.id.btn_fragment: // 第4章 第二节课Fragment
                 Intent fragmentIntent = new Intent(this, FragmentActivity.class);
                 startActivity(fragmentIntent);
                 break;
-            case R.id.btn_sharepreferences: // 第5章 数据存储第一节课SharePreferences
+            case R.id.btn_sharepreferences: // 第5章 第一节课数据存储SharePreferences
                 Intent sharePreferencesIntent = new Intent(this, SharePreferencesActivity.class);
                 startActivity(sharePreferencesIntent);
                 break;
-            case R.id.btn_sqlite: // 第5章 数据存储第二节课SQLite
+            case R.id.btn_sqlite: // 第5章 第二节课数据存储SQLite
                 Intent sqliteIntent = new Intent(this, SqliteActivity.class);
                 startActivity(sqliteIntent);
                 break;
