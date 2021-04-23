@@ -42,7 +42,8 @@ public class TextviewActivity extends AppCompatActivity {
         // textview显示drawable资源图片
         Drawable drawable_left = getResources().getDrawable(R.drawable.btn_textview);
         drawable_left.setBounds(0, 0, drawable_left.getIntrinsicWidth(), drawable_left.getIntrinsicHeight());
-        drawableTxt.setCompoundDrawables(drawable_left, drawable_left, drawable_left, drawable_left);
+        drawableTxt.setCompoundDrawables(drawable_left, drawable_left
+                , drawable_left, drawable_left);
         drawableTxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

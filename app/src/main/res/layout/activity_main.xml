@@ -10,6 +10,13 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/btn_homework"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="作業" />
+
+        <Button
             android:id="@+id/btn_broadcast_receiver"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -21,6 +28,7 @@
             android:id="@+id/btn_content_provider"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/bg_btn"
             android:onClick="onclick"
             android:text="第6章 内容提供者ContentProvider" />
 
@@ -28,6 +36,7 @@
             android:id="@+id/btn_sqlite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/btn_home"
             android:onClick="onclick"
             android:text="第5章 数据存储第二节课SQLite" />
 
@@ -35,7 +44,7 @@
             android:id="@+id/btn_sharepreferences"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="onclick"
+            android:background="@drawable/bg_btn_red"
             android:text="第5章 数据存储第一节课SharePreferences" />
 
         <Button

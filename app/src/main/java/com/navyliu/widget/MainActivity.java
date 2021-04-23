@@ -23,6 +23,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.navyliu.widget.homeword.HomewordActivity;
 import com.navyliu.widget.unit4Lsn1Activity.activity;
 import com.navyliu.widget.unit3Lsn4RecyclerView.RecyclerViewActivity;
 import com.navyliu.widget.test.TestActivity;
@@ -40,6 +41,7 @@ import com.navyliu.widget.unit7Lsn1BradcaseReceiver.BroadcastReceiverActivity;
 public class MainActivity extends AppCompatActivity {
 
     private final String TAG = this.getClass().getName();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,6 +104,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_broadcast_receiver: // 第7章 广播接收者BroadcastReceiver
                 Intent broadcastIntent = new Intent(this, BroadcastReceiverActivity.class);
                 startActivity(broadcastIntent);
+                break;
+
+            case R.id.btn_homework:
+                Intent homeIntent = new Intent(this, HomewordActivity.class);
+                startActivity(homeIntent);
                 break;
         }
     }
