@@ -2,6 +2,7 @@ package com.navyliu.widget.homeword;
 
 import android.os.Bundle;
 
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -15,8 +16,9 @@ import com.navyliu.widget.R;
  * Use the {@link AFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AFragment extends Fragment {
+public class AFragment extends Fragment implements View.OnClickListener {
 
+    private AppCompatButton btn;
 
     /**
      * Use this factory method to create a new instance of
@@ -47,6 +49,44 @@ public class AFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_a2, container, false);
+        View view = inflater.inflate(R.layout.fragment_a2, container, false);
+        btn = (AppCompatButton) view.findViewById(R.id.btn1);
+
+        setLisener();
+        return view;
+    }
+
+    private void setLisener() {
+        btn.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn1:
+                clickFragmentArgsToActivity(0, 999);
+                break;
+        }
+    }
+
+
+    private FragmentListener fragmentListener;
+
+    public static interface FragmentListener {
+        public void ActivityGetResultFromFragment(Bundle bundle);
+    }
+
+    public void setFragmentListener(FragmentListener listener) {
+
+        this.fragmentListener = listener;
+    }
+
+    public void clickFragmentArgsToActivity(int tab_index, int new_num) {
+        if (fragmentListener != null) {
+            Bundle bundle = new Bundle();
+            bundle.putInt("tab_index", tab_index);
+            bundle.putInt("new_num", new_num);
+            fragmentListener.ActivityGetResultFromFragment(bundle);
+        }
     }
 }

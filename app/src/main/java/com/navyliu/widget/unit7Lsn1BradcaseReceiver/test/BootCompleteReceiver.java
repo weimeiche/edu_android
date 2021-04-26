@@ -1,4 +1,4 @@
-package com.navyliu.widget.unit7Lsn1BradcaseReceiver;
+package com.navyliu.widget.unit7Lsn1BradcaseReceiver.test;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

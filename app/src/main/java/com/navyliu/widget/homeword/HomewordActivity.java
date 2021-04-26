@@ -25,6 +25,7 @@ public class HomewordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_homeword);
 
         initFragment();
+        chooseFragment(curr_index);
     }
 
     /**
@@ -38,9 +39,9 @@ public class HomewordActivity extends AppCompatActivity {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.add(R.id.layout_frame, dFragment, aFragment.getClass().getName());
-        transaction.add(R.id.layout_frame, cFragment, aFragment.getClass().getName());
-        transaction.add(R.id.layout_frame, bFragment, aFragment.getClass().getName());
+        transaction.add(R.id.layout_frame, dFragment, dFragment.getClass().getName());
+        transaction.add(R.id.layout_frame, cFragment, cFragment.getClass().getName());
+        transaction.add(R.id.layout_frame, bFragment, bFragment.getClass().getName());
         transaction.add(R.id.layout_frame, aFragment, aFragment.getClass().getName());
 
         transaction.commitAllowingStateLoss();
@@ -76,7 +77,7 @@ public class HomewordActivity extends AppCompatActivity {
     public void onclick(View view) {
         int tab = 0;
         switch (view.getId()) {
-            case R.id.btn2:
+            case R.id.btn2: //
                 tab = 1;
                 break;
             case R.id.btn3:
@@ -90,5 +91,17 @@ public class HomewordActivity extends AppCompatActivity {
         }
         if (tab == curr_index) return;
         chooseFragment(tab);
+    }
+
+
+
+    private void initFragmentInterface(){
+
+        aFragment.setFragmentListener(new AFragment.FragmentListener() {
+            @Override
+            public void ActivityGetResultFromFragment(Bundle bundle) {
+
+            }
+        });
     }
 }

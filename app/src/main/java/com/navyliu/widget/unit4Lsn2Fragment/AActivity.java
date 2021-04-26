@@ -53,8 +53,6 @@ public class AActivity extends AppCompatActivity {
             public void ActivityGetResultFromFragment(String string) {
                 textView.setText(string);
                 Log.d(TAG, "ActivityGetResultFromFragment: =======" + string);
-
-
             }
         });
         /**

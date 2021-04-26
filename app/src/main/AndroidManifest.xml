@@ -24,6 +24,9 @@
     <uses-permission android:name="android.permission.WRITE_CONTACTS" /> <!-- 获取检测启动完毕 -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
+    <!-- 全局弹框-->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
     <application
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -31,6 +34,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<!--        requestLegacyExternalStorage：读取存储卡需要打开权限-->
         <activity android:name=".unit3Lsn3ImageView.ImageViewWidgetActivity"></activity>
         <activity android:name=".unit3Lsn2EditViewButton.EditViewActivity" />
         <activity android:name=".unit3Lsn1Textview.TextviewActivity" />
@@ -92,7 +96,7 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".unit7Lsn1BradcaseReceiver.CountdownService" />
+<!--        <service android:name=".unit7Lsn1BradcaseReceiver.CountdownService" />-->
     </application>
 
 </manifest>
