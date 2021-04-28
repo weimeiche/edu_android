@@ -1,8 +1,10 @@
 package com.navyliu.widget;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatTextView;
+import androidx.asynclayoutinflater.view.AsyncLayoutInflater;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
@@ -18,6 +20,7 @@ import android.text.style.StrikethroughSpan;
 import android.text.style.URLSpan;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -37,6 +40,7 @@ import com.navyliu.widget.unit5Lsn1SharePreferences.SharePreferencesActivity;
 import com.navyliu.widget.unit5Lsn2Sqlite.SqliteActivity;
 import com.navyliu.widget.unit6Lsn1ContentProvider.ContentProviderActivity;
 import com.navyliu.widget.unit7Lsn1BradcaseReceiver.BroadcastReceiverActivity;
+import com.navyliu.widget.unit7Lsn2Service.ServiceActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,7 +49,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        new AsyncLayoutInflater(this)
+                .inflate(R.layout.activity_main, null
+                        , new AsyncLayoutInflater.OnInflateFinishedListener() {
+                            @Override
+                            public void onInflateFinished(@NonNull View view, int resid, @Nullable ViewGroup parent) {
+                                setContentView(view);
+                            }
+                        });
+
+//        setContentView(R.layout.activity_main);
     }
 
 
@@ -105,10 +118,13 @@ public class MainActivity extends AppCompatActivity {
                 Intent broadcastIntent = new Intent(this, BroadcastReceiverActivity.class);
                 startActivity(broadcastIntent);
                 break;
-
             case R.id.btn_homework:
                 Intent homeIntent = new Intent(this, HomewordActivity.class);
                 startActivity(homeIntent);
+                break;
+            case R.id.btn_service: // 第7章 第二节课 服务Service
+                Intent serviceIntent = new Intent(this, ServiceActivity.class);
+                startActivity(serviceIntent);
                 break;
         }
     }
