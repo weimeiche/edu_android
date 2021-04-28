@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
                                 setContentView(view);
                             }
                         });
-
 //        setContentView(R.layout.activity_main);
     }
 
