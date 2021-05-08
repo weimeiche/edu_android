@@ -17,6 +17,20 @@
             android:text="作業" />
 
         <Button
+            android:id="@+id/btn_listener"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第8章 第二节课 监听事件" />
+
+        <Button
+            android:id="@+id/btn_handler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第8章 第一节课 Handler机制" />
+
+        <Button
             android:id="@+id/btn_service"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -112,6 +126,13 @@
             android:layout_height="wrap_content"
             android:onClick="onclick"
             android:text="第2章 第一节课布局layout" />
+
+        <Button
+            android:id="@+id/btn_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="测试练习" />
 
     </LinearLayout>
 </ScrollView>

@@ -23,8 +23,7 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.WRITE_CONTACTS" /> <!-- 获取检测启动完毕 -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> <!-- 全局弹框 -->
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <!--    前台服务-->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- 前台服务 -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
@@ -34,9 +33,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".unit7Lsn2Service.ServiceActivity"></activity>
-
-        <!-- requestLegacyExternalStorage：读取存储卡需要打开权限 -->
+        <activity android:name=".unit8Lsn2Listener.ListenerActivity"></activity>
+        <activity android:name=".unit8Lsn1Handler.HandlerActivity" />
+        <activity android:name=".unit7Lsn2Service.ServiceActivity" /> <!-- requestLegacyExternalStorage：读取存储卡需要打开权限 -->
         <activity android:name=".unit3Lsn3ImageView.ImageViewWidgetActivity" />
         <activity android:name=".unit3Lsn2EditViewButton.EditViewActivity" />
         <activity android:name=".unit3Lsn1Textview.TextviewActivity" />
@@ -96,12 +95,12 @@
             <intent-filter>
                 <action android:name="com.navyliu.widget.myreceiver" />
             </intent-filter>
-        </receiver>
-        <!--        服务-->
+        </receiver> <!-- 服务 -->
         <service android:name=".unit7Lsn2Service.MyService" />
         <service android:name=".unit7Lsn2Service.MyBindService" />
         <service android:name=".unit7Lsn2Service.MyIntentService" />
         <service android:name=".unit7Lsn2Service.AlarmService" />
+
         <receiver android:name=".unit7Lsn2Service.AlarmReceiver" />
     </application>
 

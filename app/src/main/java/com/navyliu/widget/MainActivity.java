@@ -41,6 +41,8 @@ import com.navyliu.widget.unit5Lsn2Sqlite.SqliteActivity;
 import com.navyliu.widget.unit6Lsn1ContentProvider.ContentProviderActivity;
 import com.navyliu.widget.unit7Lsn1BradcaseReceiver.BroadcastReceiverActivity;
 import com.navyliu.widget.unit7Lsn2Service.ServiceActivity;
+import com.navyliu.widget.unit8Lsn1Handler.HandlerActivity;
+import com.navyliu.widget.unit8Lsn2Listener.ListenerActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -63,6 +65,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void onclick(View view) {
         switch (view.getId()) {
+            case R.id.btn_test: // 测试练习
+                Intent testIntent = new Intent(this, TestActivity.class);
+                startActivity(testIntent);
+                break;
             case R.id.btn_layout: // 第2章 第一节课布局layout
                 Intent layoutIntent = new Intent(this, LayoutActivity.class);
                 startActivity(layoutIntent);
@@ -124,6 +130,14 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_service: // 第7章 第二节课 服务Service
                 Intent serviceIntent = new Intent(this, ServiceActivity.class);
                 startActivity(serviceIntent);
+                break;
+            case R.id.btn_handler: // 第8章 第一节课 Handler机制
+                Intent handerIntent = new Intent(this, HandlerActivity.class);
+                startActivity(handerIntent);
+                break;
+            case R.id.btn_listener: // 第8章 第二节课 监听事件
+                Intent listenerIntent = new Intent(this, ListenerActivity.class);
+                startActivity(listenerIntent);
                 break;
         }
     }

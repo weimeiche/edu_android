@@ -13,6 +13,8 @@ import android.content.ServiceConnection;
 import android.os.Binder;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 
@@ -37,7 +39,25 @@ public class ServiceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_service);
 
         edit = (AppCompatEditText) this.findViewById(R.id.edit);
-//stacti
+        
+        
+        edit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // 输入内容前的回调
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // 输入框内容改变时的回调
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // 输入框内容改变以后的回调
+                String str = s.toString(); // 输入框中的内容
+            }
+        });
 //        Intent intent = new Intent(this, TestService.class);
 //        startService(intent);
 //        startThread();
@@ -55,6 +75,7 @@ public class ServiceActivity extends AppCompatActivity {
         RunableThread runableThread = new RunableThread();
         new Thread(runableThread).start();
 
+        // runable匿名方法
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -62,6 +83,10 @@ public class ServiceActivity extends AppCompatActivity {
         }).start();
 
         // 实现Callable接口
+        // 1、实例callable继承类的对象
+        // 2 、将对象放一个异步任务里面；
+        // 3、将任务放到Thread里面；
+        // 4、使用start方法启动线程；
         CallableThread callableThread = new CallableThread();
         FutureTask futureTask = new FutureTask(callableThread);
         Thread callable = new Thread(futureTask);
@@ -74,6 +99,7 @@ public class ServiceActivity extends AppCompatActivity {
         @Override
         public Object call() throws Exception {
             Log.d(TAG, "call: =============CallableThread implements Callable===========");
+            // 耗时操作。比如网络请求
             return null;
         }
     }
@@ -83,6 +109,7 @@ public class ServiceActivity extends AppCompatActivity {
         @Override
         public void run() {
             Log.d(TAG, "run: =======RunableThread implements Runnable=======");
+//            网络请求
         }
     }
 
@@ -91,6 +118,7 @@ public class ServiceActivity extends AppCompatActivity {
         public void run() {
             super.run();
             Log.d(TAG, "run: ====ExtendsThread extends Thread===========");
+            // 要执行的动作
         }
     }
 

@@ -18,9 +18,5 @@ public class MainActivity extends AppCompatActivity {
         ContentValues values = new ContentValues();
         values.put("name","asdf");
 
-//        Uri uri = Uri.parse("content://com.navyliu.widgit.userProvider/friend");
-//
-//        this.getContentResolver().insert(uri,values)
-
     }
 }
