@@ -43,6 +43,7 @@ import com.navyliu.widget.unit7Lsn1BradcaseReceiver.BroadcastReceiverActivity;
 import com.navyliu.widget.unit7Lsn2Service.ServiceActivity;
 import com.navyliu.widget.unit8Lsn1Handler.HandlerActivity;
 import com.navyliu.widget.unit8Lsn2Listener.ListenerActivity;
+import com.navyliu.widget.unit8Lsn3Http.HttpActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -138,6 +139,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_listener: // 第8章 第二节课 监听事件
                 Intent listenerIntent = new Intent(this, ListenerActivity.class);
                 startActivity(listenerIntent);
+                break;
+            case R.id.btn_http: // 第8章 第三节课 网络请求
+                Intent httpIntent = new Intent(this, HttpActivity.class);
+                startActivity(httpIntent);
                 break;
         }
     }

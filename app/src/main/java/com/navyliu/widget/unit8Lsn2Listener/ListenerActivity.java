@@ -1,28 +1,35 @@
 package com.navyliu.widget.unit8Lsn2Listener;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-import androidx.appcompat.widget.AppCompatEditText;
-
+import android.annotation.SuppressLint;
+import android.graphics.Matrix;
+import android.graphics.PointF;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatEditText;
+import androidx.appcompat.widget.AppCompatImageView;
 
 import com.navyliu.widget.R;
 
-public class ListenerActivity extends AppCompatActivity implements View.OnClickListener {
+public class ListenerActivity extends AppCompatActivity
+        implements View.OnClickListener, View.OnTouchListener {
 
     private final String TAG = this.getClass().getName();
+    private AppCompatImageView imageview;
+    private AppCompatImageView mutliImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listener);
 
+        findview();
         /**
          * 绑定监听的五种方式
          */
@@ -32,6 +39,7 @@ public class ListenerActivity extends AppCompatActivity implements View.OnClickL
         bindSelfListener(); // 使用Activity自己的事件监听
 
         setTextWather();
+        setTouchListener(); // 绑定触摸监听
 
 //        AppCompatButton listenerBtn = (AppCompatButton) this.findViewById(R.id.btn_setListener);
 //listenerBtn.setOnClickListener(new MyListener());
@@ -45,6 +53,148 @@ public class ListenerActivity extends AppCompatActivity implements View.OnClickL
 //        });
 
     }
+
+    /**
+     * 绑定触摸监听  开始
+     * onTouch(View v, MotionEvent event):这里面的参数依次是触发触摸事件的组件
+     * ,触碰事件event 封装了触发事件的详细信息，同样包括事件的类型、触发时间等信息。
+     * 比如event.getX(),event.getY()
+     * event.getDownTime()
+     * event.getEventTime()
+     * 我们也可以对触摸的动作类型进行判断,使用event.getAction( )再进行判断;如:
+     * event.getAction == MotionEvent.ACTION_DOWN：按下事件
+     * event.getAction == MotionEvent.ACTION_MOVE:移动事件
+     * event.getAction == MotionEvent.ACTION_UP:弹起事件
+     */
+    float startX = 0, startY = 0;
+    float getX = 0, getY = 0;
+
+    private void setTouchListener() {
+        imageview.setOnTouchListener(new View.OnTouchListener() {
+            @SuppressLint("ClickableViewAccessibility")
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: // 按下事件
+                        Log.d(TAG, "onTouch: ======按下去了====");
+                        Log.d(TAG, "onTouch: ======event.getX()=====" + event.getX() + "====event.getY()=====" + event.getY());
+                        startX = imageview.getX();
+                        startY = imageview.getY();
+                        getX = event.getX();
+                        getY = event.getY();
+                        break;
+                    case MotionEvent.ACTION_UP: // 弹起事件
+                        Log.d(TAG, "onTouch: =====弹起来了====");
+                        Log.d(TAG, "onTouch: ======event.getX()=====" + event.getX() + "====event.getY()=====" + event.getY());
+                        break;
+                    case MotionEvent.ACTION_MOVE: // 移动事件
+                        Log.d(TAG, "onTouch: =======动了动了======");
+                        imageview.setX(startX + (event.getX() - getX));
+                        imageview.setY(startY + (event.getY() - getY));
+                        imageview.invalidate();
+                        break;
+                }
+                return true;
+            }
+        });
+    }
+
+    /**
+     * 绑定触摸监听  结束
+     */
+
+    private void findview() {
+        imageview = (AppCompatImageView) this.findViewById(R.id.imageview);
+        mutliImg = (AppCompatImageView) this.findViewById(R.id.img_mutli);
+        mutliImg.setOnTouchListener(this);
+    }
+
+    /**
+     * 多点触控监听  开始
+     *
+     * @param v
+     * @param event
+     * @return
+     */
+    // 缩放控制
+    private Matrix matrix = new Matrix();
+    private Matrix savedMatrix = new Matrix();
+    // 不同状态标识
+    private static final int NONE = 0;
+    private static final int DRAG = 1;
+    private static final int ZOOM = 2;
+    private int mode = NONE;
+    // 定义第一个按下的点，两个接触点的重点，以及初始的两点之间的距离
+    private PointF startPoint = new PointF();
+    private PointF midPoint = new PointF();
+    private float oriDis = 1f;
+
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        AppCompatImageView img = (AppCompatImageView) v;
+        // event.getAction() & MotionEvent.ACTION_MASK
+        switch (event.getAction() & MotionEvent.ACTION_MASK) {
+            case MotionEvent.ACTION_DOWN: // 单个手指
+                Log.d(TAG, "onTouch: ===MotionEvent.ACTION_DOWN=====");
+                matrix.set(img.getMatrix());
+                savedMatrix.set(matrix);
+                startPoint.set(event.getX(), event.getY());
+                mode = DRAG;
+                break;
+            case MotionEvent.ACTION_POINTER_DOWN: // 双指
+                Log.d(TAG, "onTouch: ========MotionEvent.ACTION_POINTER_DOWN==========");
+                oriDis = distance(event);
+                if (oriDis > 10f) {
+                    savedMatrix.set(matrix);
+                    midPoint = middle(event);
+                    mode = ZOOM;
+                }
+                break;
+            case MotionEvent.ACTION_UP: // 放开手指
+            case MotionEvent.ACTION_POINTER_UP:
+                Log.d(TAG, "onTouch: ========MotionEvent.ACTION_UP==========");
+                mode = NONE;
+                break;
+            case MotionEvent.ACTION_MOVE: // 单指滑动事件
+                Log.d(TAG, "onTouch: ========MotionEvent.ACTION_MOVE==========");
+                if (mode == DRAG) {
+                    // 一根手指拖动
+                    matrix.set(savedMatrix);
+                    matrix.postTranslate(event.getX() - startPoint.x, event.getY() - startPoint.y);
+                } else if (mode == ZOOM) {
+                    // 两根手指滑动
+                    float newDist = distance(event);
+                    if (newDist > 10f) {
+                        matrix.set(savedMatrix);
+                        float scale = newDist / oriDis;
+                        matrix.postScale(scale, scale, midPoint.x, midPoint.y);
+                    }
+                }
+                break;
+        }
+        // 设置Imageview的Matrix
+        img.setImageMatrix(matrix);
+        return true;
+    }
+
+    // 计算两点之间的距离
+    private float distance(MotionEvent event) {
+        float x = event.getX(0) - event.getX(1);
+        float y = event.getY(0) - event.getY(1);
+        return (float) Math.sqrt(x * x + y * y);
+    }
+
+    // 计算两个触摸点的中点
+    private PointF middle(MotionEvent event) {
+        float x = event.getX(0) + event.getX(1);
+        float y = event.getY(0) + event.getY(1);
+        return new PointF(x / 2, y / 2);
+    }
+    /**
+     * 多点触控监听  结束
+     */
+
 
     /**
      * 绑定在布局上的监听
@@ -148,8 +298,7 @@ public class ListenerActivity extends AppCompatActivity implements View.OnClickL
     private class MyTextWatcher implements TextWatcher {
 
         /**
-         *
-         * @param s 输入框里面的内容，可以通过tostring 转成一个字符串
+         * @param s     输入框里面的内容，可以通过tostring 转成一个字符串
          * @param start 这次（即将）输入的放到开始位置
          * @param count 这次（即将）输入的内容所要替换的字符串长度
          * @param after 这次（即将）输入的字符串长度
@@ -157,22 +306,21 @@ public class ListenerActivity extends AppCompatActivity implements View.OnClickL
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             // 输入之前调用
-            Log.d(TAG, "beforeTextChanged: ===="+s.toString()+"==start："
-                    +start+"===count："+count+"===after："+after);
+            Log.d(TAG, "beforeTextChanged: ====" + s.toString() + "==start："
+                    + start + "===count：" + count + "===after：" + after);
         }
 
         /**
-         *
-         * @param s 输入框里面的内容，可以通过tostring 转成一个字符串
-         * @param start 这次输入的放到开始位置
+         * @param s      输入框里面的内容，可以通过tostring 转成一个字符串
+         * @param start  这次输入的放到开始位置
          * @param before 这次输入的内容所要替换的字符串长度
-         * @param count 这次输入字符串长度
+         * @param count  这次输入字符串长度
          */
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             // 输入以后调用
-            Log.d(TAG, "onTextChanged: ===="+s.toString()+"==start："
-                    +start+"===count："+count+"===before："+before);
+            Log.d(TAG, "onTextChanged: ====" + s.toString() + "==start："
+                    + start + "===count：" + count + "===before：" + before);
         }
 
         /**
@@ -181,7 +329,7 @@ public class ListenerActivity extends AppCompatActivity implements View.OnClickL
         @Override
         public void afterTextChanged(Editable s) {
             // 文本改变以后调用
-            Log.d(TAG, "afterTextChanged: ===="+s.toString());
+            Log.d(TAG, "afterTextChanged: ====" + s.toString());
         }
     }
 
