@@ -24,10 +24,8 @@ import okhttp3.Call;
 
 public class HttpActivity extends AppCompatActivity {
 
-    private final String TAG = this.getClass().getName();
     private AppCompatImageView getImg;
 
-    private MyHandler myHandler;
     private String url_img = "https://bkimg.cdn.bcebos.com/pic/faf2b2119313b07e06eff2050fd7912397dd8c69?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U5Mg==,g_7,xp_5,yp_5/format,f_auto";
     //    private String url_html = "https://developer.android.google.cn/";
 //    private String url_html = "http://192.168.1.102:8080/chicken/wx/public/city.php";
@@ -47,9 +45,8 @@ public class HttpActivity extends AppCompatActivity {
 
     }
 
-    private void findView() {
-        getImg = (AppCompatImageView) this.findViewById(R.id.img_get);
-    }
+    private MyHandler myHandler;
+    private final String TAG = this.getClass().getName();
 
     private class MyHandler extends Handler {
         private WeakReference<HttpActivity> activity;
@@ -62,12 +59,47 @@ public class HttpActivity extends AppCompatActivity {
         public void handleMessage(@NonNull Message msg) {
             switch (msg.what) {
                 case Constants.GET_HTTP: // 获取图片返回
-                    getImg.setImageBitmap((Bitmap) msg.obj);
+//                    getImg.setImageBitmap((Bitmap) msg.obj);
+                    Log.d(TAG, "handleMessage: =====" + msg.obj);
                     break;
             }
         }
     }
 
+    private void getData() {
+        new Thread() {
+            @Override
+            public void run() {
+                Message message = Message.obtain(myHandler);
+                message.what = Constants.GET_HTTP;
+                message.obj = "bitmap";
+                message.sendToTarget();
+            }
+        }.start();
+    }
+
+
+//    private void getData() {
+//        new Thread() {
+//            @Override
+//            public void run() {
+//                try {
+//                    byte[] image = GetData.getImage(url_img);
+//                    Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
+//                    Message message = Message.obtain(myHandler);
+//                    message.what = Constants.GET_HTTP;
+//                    message.obj = bitmap;
+//                    message.sendToTarget();
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }.start();
+//    }
+
+    private void findView() {
+        getImg = (AppCompatImageView) this.findViewById(R.id.img_get);
+    }
 
     public void onclick(View view) {
         switch (view.getId()) {
@@ -105,24 +137,6 @@ public class HttpActivity extends AppCompatActivity {
                 try {
                     String html = GetData.getHtml(url_html);
                     Log.d(TAG, "run: =========" + html);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }.start();
-    }
-
-    private void getData() {
-        new Thread() {
-            @Override
-            public void run() {
-                try {
-                    byte[] image = GetData.getImage(url_img);
-                    Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
-                    Message message = Message.obtain(myHandler);
-                    message.what = Constants.GET_HTTP;
-                    message.obj = bitmap;
-                    message.sendToTarget();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

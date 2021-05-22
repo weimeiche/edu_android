@@ -32,6 +32,38 @@ import javax.net.ssl.HttpsURLConnection;
 public class TestActivity extends AppCompatActivity {
 
     private final String TAG = this.getClass().getName();
+    private int[][] arr;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_test);
+
+        for (int i = 0; i < 50; i++) {
+            arr[i][0] = 1; // 第一列的数字为1
+        }
+        for (int i = 1; i < 50; i++) {
+            for (int j = 0; j < 50; j++) {
+                arr[i][j] = arr[i-1][j-1]+arr[i-1][j];
+            }
+        }
+        // 打印结果
+        String str = "第50行数字为：";
+        for (int i :   arr[49]) {
+            str += ','+i;
+        }
+        Log.d(TAG, "onCreate: =======");
+
+//        findview();
+//        myHandler = new MyHandler();
+//        new AsyncTask<>()
+    }
+
+
+
+
+
+
     private AppCompatTextView textView;
     private AppCompatImageView imageView;
 
@@ -39,18 +71,6 @@ public class TestActivity extends AppCompatActivity {
     private int count = 0;
 
     private String img_src = "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimage109.360doc.com%2FDownloadImg%2F2018%2F04%2F1713%2F130458778_4_20180417015601550.png&refer=http%3A%2F%2Fimage109.360doc.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1622309637&t=5d877a45291d0f37dba19fc6ac99acb1";
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test);
-
-        findview();
-        myHandler = new MyHandler();
-
-
-//        new AsyncTask<>()
-    }
 
     private void findview() {
         textView = (AppCompatTextView) this.findViewById(R.id.textview);

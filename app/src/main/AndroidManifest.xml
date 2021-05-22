@@ -37,7 +37,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".unit8Lsn3Http.HttpClientActivity"></activity>
+        <activity android:name=".pageview.ViewpagerActivity"></activity>
+        <activity android:name=".unit8Lsn3Http.HttpClientActivity" />
         <activity android:name=".unit8Lsn3Http.HttpActivity" />
         <activity android:name=".unit8Lsn2Listener.ListenerActivity" />
         <activity android:name=".unit8Lsn1Handler.HandlerActivity" />

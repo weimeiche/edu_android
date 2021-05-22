@@ -27,6 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.navyliu.widget.homeword.HomewordActivity;
+import com.navyliu.widget.pageview.ViewpagerActivity;
 import com.navyliu.widget.unit4Lsn1Activity.activity;
 import com.navyliu.widget.unit3Lsn4RecyclerView.RecyclerViewActivity;
 import com.navyliu.widget.test.TestActivity;
@@ -143,6 +144,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_http: // 第8章 第三节课 网络请求
                 Intent httpIntent = new Intent(this, HttpActivity.class);
                 startActivity(httpIntent);
+                break;
+            case R.id.btn_viewpager2: // viewpager2+fragment
+                Intent viewpagerIntent = new Intent(this, ViewpagerActivity.class);
+                startActivity(viewpagerIntent);
                 break;
         }
     }
