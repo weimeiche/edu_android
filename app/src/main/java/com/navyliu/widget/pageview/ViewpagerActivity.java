@@ -1,6 +1,7 @@
 package com.navyliu.widget.pageview;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -27,8 +28,8 @@ public class ViewpagerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pageview);
 
-        init();
         findView();
+        init();
 
         pagerAdapter = new ViewPagerAdapter(fragments, this);
         viewPager.setAdapter(pagerAdapter);
@@ -39,7 +40,35 @@ public class ViewpagerActivity extends AppCompatActivity {
         for (int i = 0; i < page_titles.length; i++) {
             viewpageFragment fragment = com.navyliu.widget.pageview.viewpageFragment.newInstance(page_titles[i], page_val[i]);
             fragments.add(fragment);
+            tabLayout.addTab(tabLayout.newTab().setText(page_titles[i]));
         }
+
+        // 绑定选项卡和viewpager的联动关系
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+        // 绑定viewpager和选项卡的联动关系
+        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                super.onPageSelected(position);
+                tabLayout.setScrollPosition(position, 0, false);
+            }
+        });
     }
 
     private void findView() {
