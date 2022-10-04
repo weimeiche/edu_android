@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txt_shenglue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:maxLines="2"
+        android:text="图片图片图片图片图片图片图片图片图片图片图片图片图片图片图片图片图片图片图片图片图片图片图片图片图片"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/txt_drawable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="图片" />
+
+    <TextView
+        android:id="@+id/txt_auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoLink="phone" />
+
+    <TextView
+        android:id="@+id/txt_html"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:shadowColor="@color/blue"
+        android:shadowDx="10"
+        android:shadowDy="10"
+        android:shadowRadius="0.1"
+        android:textColor="@color/colorAccent"
+        android:textSize="40sp"
+        android:textStyle="bold|italic" />
+
+
+</LinearLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".unit8Lsn2Listener.ListenerActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageview"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@mipmap/navyliu" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_setListener"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="直接用匿名内部类" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_implement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="使用内部类" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_out_implement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="使用外部类" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_self_click"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="使用Activity自己的事件监听" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_xml_click"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onclick"
+        android:text="直接绑定在xml布局文件上" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入内容来测试内容改变监听"
+        android:textSize="20sp" />
+
+    <com.navyliu.widget.unit8Lsn2Listener.CustomClearEditText
+        android:id="@+id/edit_custom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="自定义的一个输入框" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_mutli"
+        android:layout_width="500dp"
+        android:layout_height="500dp"
+        android:scaleType="matrix"
+        android:src="@mipmap/navyliu" />
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

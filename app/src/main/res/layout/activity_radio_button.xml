@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".unit3Lsn3ImageView.RadioButtonActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="我喜欢的角色（单选）"
+            android:textSize="25sp" />
+
+        <RadioGroup
+            android:id="@+id/rg_juese"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/raido_eshao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="鹅少" />
+
+            <RadioButton
+                android:id="@+id/raido_xiaosan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="唐三" />
+
+            <RadioButton
+                android:id="@+id/raido_xiaowu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="小舞" />
+
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="下面不属于《斗罗大陆》中的人物"
+            android:textSize="25sp" />
+
+        <CheckBox
+            android:id="@+id/check_eshao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:text="鹅少" />
+
+        <CheckBox
+            android:id="@+id/check_shashengwan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="杀生丸" />
+
+        <CheckBox
+            android:id="@+id/check_xiaowu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="小舞" />
+
+        <CheckBox
+            android:id="@+id/check_quyecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="犬夜叉" />
+
+        <Button
+            android:id="@+id/btn_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="复选框选择了：" />
+
+        <TextView
+            android:id="@+id/txt_check"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+</ScrollView>

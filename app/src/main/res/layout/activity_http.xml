@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".unit8Lsn3Http.HttpActivity">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_get"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="get请求" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_html"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="get请求获取返回结果html" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_get"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:background="@color/colorAccent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="发送一个post请求" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_okhttp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="okhttp框架" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_get"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.core.widget.NestedScrollView>

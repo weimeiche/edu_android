@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="blue">#0000FF</color>
+    <color name="black">#000000</color>
+    <color name="lightgray">#CDD0D3</color>
+    <color name="gray">#999999</color>
+    <color name="lightgreen">#24EED5</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="bg_dialog">#55000000</color>
+
+
+    <color name="red">#ff0000</color>
+
+    <!--    color 的值使用三原色来表示，不区分大小写-->
+    <!--    三原色 : 白光 可以分解为 红, 绿, 蓝 三种颜色的光, 红绿蓝都是最大值的时候就是白色, 三种值相等, 但不是最大值是灰色, 如果其中一种或两种值比较大, 就会产生各种颜色的彩色;-->
+    <!--     -->
+    <!--    颜色表示 : 颜色通过 红(red) 绿(green) 蓝(blue) 三种颜色, 以及 透明度(alpha) 来表示的;-->
+    <!--    &#45;&#45; 颜色开头 : 颜色值总是以 # 开头;-->
+    <!--    &#45;&#45; 无透明度 : 如果没有 alpha 值, 默认完全不透明;-->
+    <!--     -->
+    <!--    颜色定义形式 : -->
+    <!--    &#45;&#45; #RGB : 红 绿 蓝 三原色值, 每个值分16个等级, 最小为0, 最大为f;-->
+    <!--    &#45;&#45; #ARGB : 透明度 红 绿 蓝 值, 每个值分16个等级, 最小为0, 最大为f;-->
+    <!--    &#45;&#45; #RRGGBB : 红 绿 蓝 三原色值, 每个值分 256个等级, 最小为0, 最大为ff;-->
+    <!--    &#45;&#45; #AARRGGBB : 透明度 红 绿 蓝 值, 每个值分 256个等级, 最小为0, 最大为ff;-->
+    <!--主题按钮效果-->
+    <!--按钮开始效果-->
+    <color name="theme_btn_start">#FF9800</color>
+    <!--按钮结束效果-->
+    <color name="theme_btn_end">#13B11A</color>
+    <!--主题按钮点击效果-->
+    <color name="theme_btn_hover">#e63d37</color>
+    <!--分割线，边线-->
+    <color name="sliver">#e5e5e5</color>
+    <color name="white">#FFFFFF</color>
+</resources>

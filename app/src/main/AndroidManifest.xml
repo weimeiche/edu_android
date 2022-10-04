@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <!--    SD卡读写权限 开始-->
+    <uses-permission
+        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+    <!--    SD卡读写权限 结束-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 短信相关权限 -->
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission
+        android:name="android.permission.BROADCAST_SMS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" /> <!-- 获取联系人 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" /> <!-- 获取检测启动完毕 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> <!-- 全局弹框 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- 前台服务 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".pageview.ViewpagerActivity"></activity>
+        <activity android:name=".unit8Lsn3Http.HttpClientActivity" />
+        <activity android:name=".unit8Lsn3Http.HttpActivity" />
+        <activity android:name=".unit8Lsn2Listener.ListenerActivity" />
+        <activity android:name=".unit8Lsn1Handler.HandlerActivity" />
+        <activity android:name=".unit7Lsn2Service.ServiceActivity" /> <!-- requestLegacyExternalStorage：读取存储卡需要打开权限 -->
+        <activity android:name=".unit3Lsn3ImageView.ImageViewWidgetActivity" />
+        <activity android:name=".unit3Lsn2EditViewButton.EditViewActivity" />
+        <activity android:name=".unit3Lsn1Textview.TextviewActivity" />
+        <activity android:name=".unit2Lsn3Resource.ResourceActivity" />
+        <activity android:name=".unit2Lsn2Layout.LayoutActivity" />
+        <activity android:name=".unit2Lsn1Layout.LayoutActivity" />
+        <activity android:name=".test.MainActivity" />
+        <activity android:name=".unit7Lsn1BradcaseReceiver.BroadcastReceiverActivity" />
+
+        <provider
+            android:name=".unit6Lsn1ContentProvider.UserContentProvider"
+            android:authorities="com.navyliu.widgit.userProvider"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".unit6Lsn1ContentProvider.ContentProviderActivity" />
+        <activity android:name=".unit5Lsn2Sqlite.SqliteActivity" /> <!-- android:requestLegacyExternalStorage="true" -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.navyliu.widget.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity android:name=".unit5Lsn1SharePreferences.SharePreferencesActivity" />
+        <activity android:name=".homeword.HomewordActivity" />
+        <activity android:name=".test.TestActivity" />
+        <activity android:name=".unit4Lsn2Fragment.AActivity" />
+        <activity android:name=".unit4Lsn2Fragment.BActivity" />
+        <activity android:name=".unit4Lsn2Fragment.FragmentActivity" />
+        <activity
+            android:name=".unit4Lsn1Activity.SeconedActivity"
+            android:launchMode="standard" />
+        <activity
+            android:name=".unit4Lsn1Activity.activity"
+            android:launchMode="standard" />
+        <activity android:name=".unit3Lsn4RecyclerView.grid.GridActivity" />
+        <activity android:name=".unit3Lsn4RecyclerView.RecyclerViewActivity" />
+        <activity android:name=".unit3Lsn3ImageView.RatingBarActivity" />
+        <activity android:name=".unit3Lsn3ImageView.ProgressBarActivity" />
+        <activity android:name=".unit3Lsn3ImageView.SeekBarActivity" />
+        <activity android:name=".unit3Lsn3ImageView.SwitchActivity" />
+        <activity android:name=".unit3Lsn3ImageView.RadioButtonActivity" />
+        <activity android:name=".unit3Lsn3ImageView.ImageViewActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".unit7Lsn1BradcaseReceiver.MyReceiver">
+            <intent-filter>
+                <action android:name="com.navyliu.widget.myreceiver" />
+            </intent-filter>
+        </receiver> <!-- 服务 -->
+        <service android:name=".unit7Lsn2Service.MyService" />
+        <service android:name=".unit7Lsn2Service.MyBindService" />
+        <service android:name=".unit7Lsn2Service.MyIntentService" />
+        <service android:name=".unit7Lsn2Service.AlarmService" />
+
+        <receiver android:name=".unit7Lsn2Service.AlarmReceiver" />
+    </application>
+
+</manifest>

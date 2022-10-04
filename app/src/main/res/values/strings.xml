@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">widget</string>
+    <string name="title_activity_radio_button">RadioButtonActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="str_home">首页</string>
+    <string name="str_news">新闻</string>
+    <string name="str_goods">商品</string>
+    <string name="str_mycenter">个人中心</string>
+
+
+    <string name="kecheng">课程</string>
+    <string name="property_animation">属性动画(property animation):Android3.0推存出来的属性动画，不仅能够实现补间动画的效果，还能填补补间动画的不足,改变了view的位置。</string>
+
+
+</resources>

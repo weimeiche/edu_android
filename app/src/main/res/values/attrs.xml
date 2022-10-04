@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="SwipeToLoadLayout">
+        <attr name="refresh_enabled" format="boolean" />
+        <attr name="load_more_enabled" format="boolean" />
+
+        <attr name="swipe_style" format="enum">
+            <enum name="classic" value="0" />
+            <enum name="above" value="1" />
+            <enum name="blew" value="2" />
+            <enum name="scale" value="3" />
+        </attr>
+
+        <attr name="drag_ratio" format="float" />
+
+        <attr name="refresh_trigger_offset" format="dimension" />
+        <attr name="load_more_trigger_offset" format="dimension" />
+        <attr name="refresh_final_drag_offset" format="dimension" />
+        <attr name="load_more_final_drag_offset" format="dimension" />
+
+        <attr name="swiping_to_refresh_to_default_scrolling_duration" format="integer" />
+        <attr name="release_to_refreshing_scrolling_duration" format="integer" />
+        <attr name="refresh_complete_delay_duration" format="integer" />
+        <attr name="refresh_complete_to_default_scrolling_duration" format="integer" />
+        <attr name="default_to_refreshing_scrolling_duration" format="integer" />
+        <attr name="swiping_to_load_more_to_default_scrolling_duration" format="integer" />
+        <attr name="release_to_loading_more_scrolling_duration" format="integer" />
+        <attr name="load_more_complete_delay_duration" format="integer" />
+        <attr name="load_more_complete_to_default_scrolling_duration" format="integer" />
+        <attr name="default_to_loading_more_scrolling_duration" format="integer" />
+    </declare-styleable>
+
+
+
+    <declare-styleable name="CustomTitleBar">
+        <attr name="title_background_color" format="reference|integer"/>
+        <attr name="left_button_visible" format="boolean"/>
+        <attr name="right_button_visible" format="boolean" />
+        <attr name="title_text" format="string"/>
+        <attr name="title_text_color" format="color"/>
+        <attr name="title_text_drawable" format="reference|integer"/>
+        <attr name="right_button_text" format="string"/>
+        <attr name="right_button_text_color" format="color"/>
+        <attr name="right_button_drawable" format="reference|integer"/>
+        <attr name="left_button_text" format="string"/>
+        <attr name="left_button_text_color" format="color"/>
+        <attr name="left_button_drawable" format="reference|integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="RecyclerViewPager">
+        <attr name="rvp_triggerOffset" format="float" />
+        <attr name="rvp_flingFactor" format="float" />
+        <attr name="rvp_singlePageFling" format="boolean" />
+        <attr name="rvp_inertia" format="boolean"/>
+        <attr name="rvp_millisecondsPerInch" format="float" />
+    </declare-styleable>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <declare-styleable name="PercentView">
+        <attr name="percent_circle_gravity">
+            <!-- 圆形绘制的位置 -->
+            <flag name="left" value="0" />
+            <flag name="top" value="1" />
+            <flag name="center" value="2" />
+            <flag name="right" value="3" />
+            <flag name="bottom" value="4" />
+        </attr>
+        <attr name="percent_circle_radius" format="dimension" /><!--圆形半径-->
+        <attr name="percent_circle_progress" format="integer" /><!--当前进度值-->
+        <attr name="percent_progress_color" format="color" /><!--进度显示颜色-->
+        <attr name="percent_background_color" format="color" /><!--圆形背景色-->
+    </declare-styleable>
+
+    <declare-styleable name="TagsLayout">
+        <attr name="tagVerticalSpace" format="dimension"/>
+        <attr name="tagHorizontalSpace" format="dimension" />
+    </declare-styleable>
+
+
+    <declare-styleable name="GridImageViewGroup">
+        <attr name="childVerticalSpace" format="dimension" />
+        <attr name="childHorizontalSpace" format="dimension" />
+        <attr name="columnNum" format="integer"/>
+    </declare-styleable>
+    
+</resources>

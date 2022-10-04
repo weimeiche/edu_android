@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_homework"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="作業" />
+
+        <Button
+            android:id="@+id/btn_viewpager2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="Viewpager2+fragment" />
+
+        <Button
+            android:id="@+id/btn_http"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第8章 第三节课 网络请求" />
+
+        <Button
+            android:id="@+id/btn_listener"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第8章 第二节课 监听事件" />
+
+        <Button
+            android:id="@+id/btn_handler"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第8章 第一节课 Handler机制" />
+
+        <Button
+            android:id="@+id/btn_service"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第7章 第二节课 服务Service" />
+
+        <Button
+            android:id="@+id/btn_broadcast_receiver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第7章 第一节课 广播接收者BroadcastReceiver" />
+
+        <Button
+            android:id="@+id/btn_content_provider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第6章 内容提供者ContentProvider" />
+
+        <Button
+            android:id="@+id/btn_sqlite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第5章 数据存储第二节课SQLite" />
+
+        <Button
+            android:id="@+id/btn_sharepreferences"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第5章 数据存储第一节课SharePreferences" />
+
+        <Button
+            android:id="@+id/btn_fragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第4章第二节课Fragment" />
+
+        <Button
+            android:id="@+id/btn_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第4章第一节课Activity" />
+
+        <Button
+            android:id="@+id/btn_recyclerview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第3章 第四节课RecyclerView" />
+
+        <Button
+            android:id="@+id/btn_widget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第3章 第三节课其他常见控件" />
+
+        <Button
+            android:id="@+id/btn_editview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第3章 第二节课常见控件Editview/Button" />
+
+        <Button
+            android:id="@+id/btn_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第3章 第一节课常见控件TextView" />
+
+        <Button
+            android:id="@+id/btn_resource"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第2章 第三节课布局资源文件" />
+
+        <Button
+            android:id="@+id/btn_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第2章 第二节课布局layout" />
+
+        <Button
+            android:id="@+id/btn_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="第2章 第一节课布局layout" />
+
+        <Button
+            android:id="@+id/btn_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onclick"
+            android:text="测试练习" />
+
+    </LinearLayout>
+</ScrollView>

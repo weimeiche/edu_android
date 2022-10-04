@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="新闻标题"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="热门"
+        android:textColor="@color/red"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="@id/txt_title"
+        app:layout_constraintTop_toBottomOf="@id/txt_title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_author"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:paddingBottom="20dp"
+        android:text="人民日报"
+        android:textColor="@color/gray"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toRightOf="@id/txt_status"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_title" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".unit3Lsn3ImageView.ImageViewActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="原图" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/lightgray"
+            android:src="@mipmap/mudanting" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop10"
+            android:text="fitXY:对图像的横向与纵向进行独立缩放,使得该图片完全适应ImageView,但是图片的横纵比可能会发生改变" />
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/mudanting" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop10"
+            android:text="fitStart:保持纵横比缩放图片,知道较长的边与Image的编程相等,缩放完成后将图片放在ImageView的左上角" />
+
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:background="@color/lightgreen"
+            android:scaleType="fitStart"
+            android:src="@mipmap/mudanting" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop10"
+            android:text="fitCenter:同上,缩放后放于中间" />
+
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:background="@color/lightgreen"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/mudanting" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop10"
+            android:text="fitEnd:同上,缩放后放于右下角" />
+
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:background="@color/lightgreen"
+            android:scaleType="fitEnd"
+            android:src="@mipmap/mudanting" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop10"
+            android:text="center:保持原图的大小，显示在ImageView的中心。当原图的size大于ImageView的size，超过部分裁剪处理。" />
+
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:background="@color/lightgreen"
+            android:scaleType="center"
+            android:src="@mipmap/mudanting" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop10"
+            android:text="centerCrop:保持横纵比缩放图片,知道完全覆盖ImageView,可能会出现图片的显示不完全" />
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:background="@color/lightgreen"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/mudanting" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop10"
+            android:text="centerInside:保持横纵比缩放图片,直到ImageView能够完全地显示图片" />
+
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:background="@color/lightgreen"
+            android:scaleType="centerInside"
+            android:src="@mipmap/mudanting" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop10"
+            android:text="matrix:默认值，不改变原图的大小，从ImageView的左上角开始绘制原图， 原图超过ImageView的部分作裁剪处理" />
+
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="100dp"
+            android:background="@color/lightgreen"
+            android:scaleType="matrix"
+            android:src="@mipmap/mudanting" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginTop10"
+            android:text="adjustViewBounds属性，用于设置缩放时是否保持原图长宽比！ 单独设置不起作用，需要配合maxWidth和maxHeight属性一起使用！而后面这两个属性 也是需要adjustViewBounds为true才会生效的~" />
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="false"
+            android:background="@color/lightgreen"
+            android:src="@mipmap/mudanting" />
+
+
+    </LinearLayout>
+</ScrollView>

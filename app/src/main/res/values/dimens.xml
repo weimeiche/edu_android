@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding5dp">5dp</dimen>
+    <dimen name="marginTop10">10dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="padding20">30dp</dimen>
+    <dimen name="radiusSize">10dp</dimen>
+    <integer name="textsize20">20</integer>
+    <bool name="is_true">true</bool>
+    <string-array name="phone">
+        <item>小米</item>
+        <item>华为</item>
+        <item>OPPO</item>
+    </string-array>
+</resources>
