@@ -16,6 +16,7 @@ import android.text.style.StrikethroughSpan;
 import android.text.style.URLSpan;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -53,18 +54,19 @@ public class EditViewActivity extends AppCompatActivity {
 
         spanTxt = (TextView) this.findViewById(R.id.txt_span);
         edit = (EditText) this.findViewById(R.id.edit1);
+        edit.setImeOptions(EditorInfo.IME_ACTION_SEARCH);
         edit.requestFocus();
         btn = (Button) this.findViewById(R.id.btn);
+        
+        // 接口
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.btn:
-                        Log.d(TAG, "onClick: =====btn");
-                        break;
-                }
+            public void onClick(View view) {
+                Log.d(TAG, "onClick: ======view.getId()====="+view.getId());
+                Log.d(TAG, "onClick: ======btn.getId()====="+btn.getId());
             }
         });
+        
 
 
         String str = "背景色背景色前景色字体颜色删除线15086646341";

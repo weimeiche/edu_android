@@ -31,12 +31,7 @@ class SDFileHelper {
      */
     public void saveFileToSD(String filename, String content) throws IOException {
         // 如果手机已经插入了sd卡，并且具有读写sd卡的权限
-        String externalStorageState = Environment.getExternalStorageState(); ==
-        String a = "1";
-        String b = "1";
-        if (a == b){
-            System.out.println("a 和 b 相等");
-        }
+        String externalStorageState = Environment.getExternalStorageState();
 
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             filename = Environment.getExternalStorageDirectory().getCanonicalPath()

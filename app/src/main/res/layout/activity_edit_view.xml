@@ -21,15 +21,18 @@
         android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/red"
         android:clickable="false"
-        android:text="按钮" />
+        android:enabled="true"
+        android:text="按钮"
+        android:textColor="@color/white" />
 
     <EditText
         android:id="@+id/edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="请输入密码"
-        android:imeOptions="actionSend"
+        android:imeOptions="actionSearch"
         android:inputType="number"
         android:selectAllOnFocus="true"
         android:textColorHint="@color/blue" />

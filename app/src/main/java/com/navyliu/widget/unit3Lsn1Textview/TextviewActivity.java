@@ -42,8 +42,7 @@ public class TextviewActivity extends AppCompatActivity {
         // textview显示drawable资源图片
         Drawable drawable_left = getResources().getDrawable(R.drawable.btn_textview);
         drawable_left.setBounds(0, 0, drawable_left.getIntrinsicWidth(), drawable_left.getIntrinsicHeight());
-        drawableTxt.setCompoundDrawables(drawable_left, drawable_left
-                , drawable_left, drawable_left);
+        drawableTxt.setCompoundDrawables(drawable_left, drawable_left, drawable_left, drawable_left);
         drawableTxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,6 +57,7 @@ public class TextviewActivity extends AppCompatActivity {
 
         // textview设置编译显示简单的html便签
         String str = "内<font color=red>事</font><small>问</small><big>百度</big><br><i>外事</i><b>问</b>谷歌<a href='http://www.baidu.com/'>百度一下</a><img src='emoji_9' />";
+        htmlTxt.setText(Html.fromHtml(str));
         htmlTxt.setClickable(true);
         htmlTxt.setMovementMethod(LinkMovementMethod.getInstance());
 

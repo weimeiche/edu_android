@@ -96,11 +96,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/marginTop10"
-            android:text="centerCrop:保持横纵比缩放图片,知道完全覆盖ImageView,可能会出现图片的显示不完全" />
+            android:text="centerCrop:保持横纵比缩放图片,直到完全覆盖ImageView,可能会出现图片的显示不完全" />
 
         <ImageView
             android:layout_width="300dp"
-            android:layout_height="100dp"
+            android:layout_height="300dp"
             android:background="@color/lightgreen"
             android:scaleType="centerCrop"
             android:src="@mipmap/mudanting" />
@@ -129,7 +129,7 @@
 
         <ImageView
             android:layout_width="300dp"
-            android:layout_height="100dp"
+            android:layout_height="300dp"
             android:background="@color/lightgreen"
             android:scaleType="matrix"
             android:src="@mipmap/mudanting" />
@@ -144,7 +144,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:adjustViewBounds="false"
+            android:adjustViewBounds="true"
             android:background="@color/lightgreen"
             android:src="@mipmap/mudanting" />
 

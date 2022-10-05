@@ -8,11 +8,14 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.navyliu.widget.R;
+
+import java.util.ArrayList;
 
 public class RadioButtonActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
 
@@ -20,8 +23,11 @@ public class RadioButtonActivity extends AppCompatActivity implements CompoundBu
     private final String TAG = this.getClass().getName();
     private RadioGroup jueseRG;
     private RadioButton aaRadio;
-    private CheckBox shashengwanCheck;
+    private CheckBox eshaoChk, shashengwanChk, xiaowuChk, quanyechaChk;
     private Button checkBtn;
+    private TextView checkTxt;
+
+    private ArrayList<String> douluoArr = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,48 +36,64 @@ public class RadioButtonActivity extends AppCompatActivity implements CompoundBu
 
         findViewId();
         setListener();
-
     }
 
     private void setListener() {
+
         jueseRG.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                RadioButton btn = RadioButtonActivity.this.findViewById(checkedId);
-                String str = btn.getText().toString();
-                Toast.makeText(RadioButtonActivity.this,"选中了"+str,Toast.LENGTH_LONG).show();
-            }
-        });
+            public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
+                RadioButton rbtn = (RadioButton) RadioButtonActivity.this.findViewById(checkedId);
+                String str = rbtn.getText().toString();
+                Toast.makeText(RadioButtonActivity.this, "当前选中的是：" + str, Toast.LENGTH_LONG).show();
+                Log.d(TAG, "onCheckedChanged: =========radioGroup.getChildCount())======" + radioGroup.getChildCount());
+                Log.d(TAG, "onCheckedChanged: ==================R.id.raido_xiaosan=========" + R.id.raido_xiaosan);
+                RadioButton btn = (RadioButton) radioGroup.getChildAt(1);
+                Log.d(TAG, "onCheckedChanged: ===================radioGroup.getChildAt(1).getId()========" + btn.getId());
 
-
-        shashengwanCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (buttonView.getId() == R.id.check_shashengwan) {
-                    Log.d(TAG, "onCheckedChanged: ====" + isChecked);
+                if (btn.isChecked()) {
+                    Log.d(TAG, "onCheckedChanged: =================当前选中了唐三对应的单选按钮==============");
+                } else {
+                    Log.d(TAG, "onCheckedChanged: =================当前没有选中了唐三对应的单选按钮==============");
                 }
             }
         });
 
-        checkBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
+        eshaoChk.setOnCheckedChangeListener(this);
+        shashengwanChk.setOnCheckedChangeListener(this);
+        xiaowuChk.setOnCheckedChangeListener(this);
+        quanyechaChk.setOnCheckedChangeListener(this);
     }
 
     private void findViewId() {
         jueseRG = (RadioGroup) this.findViewById(R.id.rg_juese);
-        shashengwanCheck = (CheckBox) this.findViewById(R.id.check_shashengwan);
-        checkBtn = (Button)this.findViewById(R.id.btn_check);
+        checkBtn = (Button) this.findViewById(R.id.btn_check);
+        aaRadio = (RadioButton) this.findViewById(R.id.raido_xiaowu);
+
+        eshaoChk = (CheckBox) this.findViewById(R.id.check_eshao);
+        shashengwanChk = (CheckBox) this.findViewById(R.id.check_shashengwan);
+        xiaowuChk = (CheckBox) this.findViewById(R.id.check_xiaowu);
+        quanyechaChk = (CheckBox) this.findViewById(R.id.check_quyecha);
+
+        checkTxt = (TextView) this.findViewById(R.id.txt_check);
     }
 
     @Override
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        switch (buttonView.getId()){
-            case R.id.check_eshao:
-                break;
+    public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+        String str = compoundButton.getText().toString();
+        if (isChecked) {
+            douluoArr.add(str);
+        } else {
+            douluoArr.remove(str);
         }
+
+        String s = "";
+        for (int i = 0; i < douluoArr.size(); i++) {
+            String s1 = douluoArr.get(i);
+            s += s1 + '，';
+        }
+        checkTxt.setText(s);
     }
+
 }
