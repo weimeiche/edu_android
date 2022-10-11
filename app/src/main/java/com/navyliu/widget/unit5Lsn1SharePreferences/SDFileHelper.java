@@ -14,14 +14,14 @@ import static android.content.ContentValues.TAG;
 class SDFileHelper {
     final String TAG = this.getClass().getName();
 
-    private Context mContent;
+//    private Context mContent;
 
     SDFileHelper() {
     }
 
     public SDFileHelper(Context context) {
         super();
-        this.mContent = context;
+//        this.mContent = context;
     }
 
     /**
@@ -36,20 +36,22 @@ class SDFileHelper {
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             filename = Environment.getExternalStorageDirectory().getCanonicalPath()
                     + "/" + filename;
+            Log.d(TAG, "saveFileToSD: ================"+filename);
             File file = new File(filename);
 
-//            String[] command = {"chmod", "777", file.toString()};
-//            ProcessBuilder builder = new ProcessBuilder(command);
-//            try {
-//                builder.start();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//            if (!file.exists()){
-//                File dir = new File(file.getParent());
-//                dir.mkdirs();
-//                file.createNewFile();
-//            }
+            String[] command = {"chmod", "777", file.toString()};
+            ProcessBuilder builder = new ProcessBuilder(command);
+            try {
+                builder.start();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            if (!file.exists()){ // 判断文件是否存在
+                File dir = new File(file.getParent()); // 初始化目录文件
+                dir.mkdirs(); // 创建文件，将文件保存到存储设备上
+                file.createNewFile(); // 将内存中的file写到存储设备上
+            }
             // 这里不要用openFileOutput，那个是王手机内存中写数据
             FileOutputStream stream = new FileOutputStream(file);
             stream.write(content.getBytes());

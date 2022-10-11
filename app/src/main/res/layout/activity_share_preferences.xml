@@ -16,12 +16,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/txt_password"
+        android:id="@+id/edit_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:drawableLeft="@mipmap/password"
         android:hint="请输入密码"
-        android:inputType="textPassword"
+        android:inputType="textVisiblePassword"
         app:layout_constraintLeft_toLeftOf="@id/edit_username"
         app:layout_constraintTop_toBottomOf="@id/edit_username" />
 
@@ -31,8 +31,8 @@
         android:layout_height="wrap_content"
         android:onClick="onclick"
         android:text="保存到文件"
-        app:layout_constraintLeft_toLeftOf="@id/txt_password"
-        app:layout_constraintTop_toBottomOf="@id/txt_password" />
+        app:layout_constraintLeft_toLeftOf="@id/edit_password"
+        app:layout_constraintTop_toBottomOf="@id/edit_password" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_read_file"
@@ -42,7 +42,43 @@
         android:onClick="onclick"
         android:text="读取文件中的内容"
         app:layout_constraintLeft_toRightOf="@id/btn_save"
-        app:layout_constraintTop_toBottomOf="@id/txt_password" />
+        app:layout_constraintTop_toBottomOf="@id/edit_password" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_sd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onclick"
+        android:text="往SD卡里面存储数据"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_read_file" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_sdread"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onclick"
+        android:text="从SD卡里面读存储的文件数据"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_sd" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_write_sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onclick"
+        android:text="保存shareperference数据"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_sdread" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_readsp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onclick"
+        android:text="从sharepreferences中读数据"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_write_sp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

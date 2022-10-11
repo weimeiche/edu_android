@@ -2,31 +2,28 @@ package com.navyliu.widget.unit5Lsn1SharePreferences;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatEditText;
-import androidx.core.app.ActivityCompat;
-import androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.navyliu.widget.R;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import pub.devrel.easypermissions.EasyPermissions;
 
-public class SharePreferencesActivity extends Activity {
+public class SharePreferencesActivity extends AppCompatActivity {
 
     private final String TAG = this.getClass().getName();
 
-    private AppCompatEditText usernameEdit;
+    private AppCompatEditText usernameEdit, passwordEdit;
     private int READ = 0;
     private int WRITE = 1;
 
@@ -37,63 +34,91 @@ public class SharePreferencesActivity extends Activity {
         setContentView(R.layout.activity_share_preferences);
 
         findView();
-
-//        /**
-//         * 向SharePreferences中保存数据
-//         *  1、通过getSharedPreferences获取SharePreference；
-//         *  2、通过.edit()获取编辑器；
-//         *  3、用put方法想编辑器中写入数据；
-//         *  4、用commit()提交
-//         */
-//        SharedPreferences user = this.getSharedPreferences("user1"
-//                , Context.MODE_PRIVATE);
-//        SharedPreferences.Editor edit = user.edit();
-//        edit.putString("username", "用户名");
-//        edit.commit();
-//
-//        /**
-//         * 读取SharePreferences中保存数据
-//         *  1、通过getSharedPreferences获取SharePreference；
-//         *  2、通过get方法获取SharePregerences中保存的值
-//         */
-//        SharedPreferences user1 = this.getSharedPreferences("user1"
-//                , Context.MODE_PRIVATE);
-//        String username = user1.getString("username", "123");
-//        String password = user1.getString("password", "123");
-//        Log.d(TAG, "onCreate: ====username:" + username
-//                + ", password:" + password);
-
-
-//        /**
-//         * 需要申请的权限
-//         * 1、在app目录下引入第三方库EasyPermissions；
-//         * 2、在AndroidManifest中的application中写入android:requestLegacyExternalStorage="true"
-//         */
-//        String[] permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE
-//                , Manifest.permission.READ_EXTERNAL_STORAGE};
-//        if (EasyPermissions.hasPermissions(this, permissions)) {
-//            try {
-//                // 向SD卡中写入数据
-//                SDFileHelper sdFileHelper = new SDFileHelper(this);
-//                sdFileHelper.saveFileToSD("sd_test.txt", "测试数据sD");
-//
-//                // 读取SD卡中的数据
-//                String sd = sdFileHelper.readFromSD("sd_test.txt");
-//                Log.d(TAG, "onCreate: =========sd_test==" + sd);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        } else {
-//            //第二个参数是被拒绝后再次申请该权限的解释
-//            //第三个参数是请求码
-//            //第四个参数是要申请的权限
-//            EasyPermissions.requestPermissions(this, "必要的权限", 0, permissions);
-//        }
-
     }
 
     private void findView() {
         usernameEdit = (AppCompatEditText) this.findViewById(R.id.edit_username);
+        passwordEdit = (AppCompatEditText) this.findViewById(R.id.edit_password);
+    }
+
+
+    private void readSharePerferences() {
+        /**
+         * 读取SharePreferences中保存数据
+         *  1、通过getSharedPreferences获取SharePreference；
+         *  2、通过get方法获取SharePregerences中保存的值
+         */
+        SharedPreferences user = this.getSharedPreferences("user", Context.MODE_PRIVATE);
+        String username = user.getString("username", "123");
+        String password = user.getString("password", "123");
+        String stu_no = user.getString("stu_no", "666");
+        Log.d(TAG, "onCreate: ====username:" + username
+                + ", password:" + password+ ", stu_no:" + stu_no);
+    }
+
+
+    private void saveSharePerference() {
+        /**
+         * 向SharePreferences中保存数据
+         *  1、通过getSharedPreferences获取SharePreference；
+         *  2、通过.edit()获取编辑器；
+         *  3、用put方法想编辑器中写入数据；
+         *  4、用commit()提交
+         */
+        String usernameStr = usernameEdit.getText().toString();
+        String passwordStr = passwordEdit.getText().toString();
+        if (usernameStr.isEmpty()) {
+            Toast.makeText(this, "请输入用户名", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (passwordStr.isEmpty()) {
+            Toast.makeText(this, "请输入密码", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        SharedPreferences user = this.getSharedPreferences("user", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = user.edit();
+        editor.putString("username", usernameStr);
+        editor.putString("password", passwordStr);
+
+        editor.commit();
+    }
+
+
+    private void editFileSD(int writeOrRead) {
+
+        SDFileHelper helper = new SDFileHelper();
+        if (writeOrRead == WRITE) {
+            String[] perms = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+            if (EasyPermissions.hasPermissions(this, perms)) {
+                // Already have permission, do the thing
+                // ...
+                Log.d(TAG, "editFileSD: ======================");
+                if (writeOrRead == WRITE) {
+                    try {
+                        helper.saveFileToSD("sd_test.txt", "测试SD卡存储数据121212121");
+                        Log.d(TAG, "editFileSD: =======================试SD卡存储数据==");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            } else {
+                // Do not have permissions, request them now
+                //第二个参数是被拒绝后再次申请该权限的解释
+                //第三个参数是请求码
+                //第四个参数是要申请的权限
+                EasyPermissions.requestPermissions(this, "asdfasd",
+                        0, perms);
+            }
+        } else {
+            String str = "";
+            try {
+                str = helper.readFromSD("sd_test.txt");
+                Log.d(TAG, "editFileSD: ======sd_test=================" + str);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 
@@ -122,6 +147,18 @@ public class SharePreferencesActivity extends Activity {
                 break;
             case R.id.btn_save:
                 editFile(WRITE);
+                break;
+            case R.id.btn_sd:
+                editFileSD(WRITE);
+                break;
+            case R.id.btn_sdread:
+                editFileSD(READ);
+                break;
+            case R.id.btn_write_sp: // 向shareperferences中写入内容
+                saveSharePerference();
+                break;
+            case R.id.btn_readsp: // 读sharepreference的内容
+                readSharePerferences();
                 break;
         }
     }
