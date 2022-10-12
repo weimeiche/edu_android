@@ -45,6 +45,7 @@ public class RadioButtonActivity extends AppCompatActivity implements CompoundBu
             public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
                 RadioButton rbtn = (RadioButton) RadioButtonActivity.this.findViewById(checkedId);
                 String str = rbtn.getText().toString();
+
                 Toast.makeText(RadioButtonActivity.this, "当前选中的是：" + str, Toast.LENGTH_LONG).show();
                 Log.d(TAG, "onCheckedChanged: =========radioGroup.getChildCount())======" + radioGroup.getChildCount());
                 Log.d(TAG, "onCheckedChanged: ==================R.id.raido_xiaosan=========" + R.id.raido_xiaosan);
@@ -60,6 +61,13 @@ public class RadioButtonActivity extends AppCompatActivity implements CompoundBu
         });
 
 
+        /**
+         * 绑定监听步骤：
+         * 1、通过findViewById获取xml布局中的控件；
+         * 2、在本类（一般是Activity、Fragment）中继承CompoundButton.OnCheckedChangeListener 接口
+         * 3、通过setOnCheckedChangeListener方法 给控件绑定监听，参数为回调的类，触发监听以后会调用回调类里面的 onCheckedChanged 方法
+         * 4、在onCheckedChanged 里面去解析，并执行希望执行动作
+         */
         eshaoChk.setOnCheckedChangeListener(this);
         shashengwanChk.setOnCheckedChangeListener(this);
         xiaowuChk.setOnCheckedChangeListener(this);
@@ -79,8 +87,14 @@ public class RadioButtonActivity extends AppCompatActivity implements CompoundBu
         checkTxt = (TextView) this.findViewById(R.id.txt_check);
     }
 
+    /**
+     * CompoundButton（包括CHeckBox，RadioButton）的回调函数
+     * @param compoundButton  是CheckBox的父级，可以强制转换为CheckBox
+     * @param isChecked  当前操作的这个CheckBox的选中状态，如果为FALSE，就表示没选中，如果为TRUE，就表示选中
+     */
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+        CheckBox checkBox = (CheckBox) compoundButton;
         String str = compoundButton.getText().toString();
         if (isChecked) {
             douluoArr.add(str);

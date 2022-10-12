@@ -26,6 +26,7 @@
             <RadioButton
                 android:id="@+id/raido_eshao"
                 android:layout_width="wrap_content"
+                android:button="@drawable/btn_home"
                 android:layout_height="wrap_content"
                 android:text="鹅少" />
 
@@ -52,8 +53,10 @@
         <CheckBox
             android:id="@+id/check_eshao"
             android:layout_width="match_parent"
+            android:button="@drawable/btn_novel"
             android:layout_height="wrap_content"
             android:text="鹅少" />
+
 
         <CheckBox
             android:id="@+id/check_shashengwan"
