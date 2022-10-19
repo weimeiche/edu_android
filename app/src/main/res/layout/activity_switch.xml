@@ -7,17 +7,37 @@
     tools:context=".unit3Lsn3ImageView.SwitchActivity">
 
     <Switch
+        android:id="@+id/btn_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:showText="true"
-        android:textSize="14sp"
         android:splitTrack="true"
-        android:textOff="默认"
+        android:switchMinWidth="100dp"
+        android:switchPadding="50dp"
+        android:textOff="关闭"
         android:textOn="打开"
-        android:thumb="@mipmap/hl_icon_check_hover"
-        android:track="@mipmap/hl_icon_check"
-        android:switchPadding="25dp"
+        android:thumb="@mipmap/emoji_9"
+        android:track="@drawable/bg_btn"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_on_off"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onclick"
+        android:text="切换开关的状态"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_switch" />
+
+
+    <!--    turn on / turn off-->
+    <!--    android:showText="true"-->
+    <!--    android:textSize="14sp"-->
+    <!--    android:splitTrack="true"-->
+    <!--    android:textOff="默认"-->
+    <!--    android:textOn="打开"-->
+    <!--    android:thumb="@mipmap/hl_icon_check_hover"-->
+    <!--    android:track="@mipmap/hl_icon_check"-->
+    <!--    android:switchPadding="25dp"-->
 </androidx.constraintlayout.widget.ConstraintLayout>

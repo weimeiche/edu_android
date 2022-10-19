@@ -23,6 +23,7 @@ public class AActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_a);
 
+        
         /**
          * 静态引入fragment
          * 直接在布局文件中引入，使用fragment控件，name属性引入。

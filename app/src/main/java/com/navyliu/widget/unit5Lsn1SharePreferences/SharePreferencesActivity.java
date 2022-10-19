@@ -2,6 +2,7 @@ package com.navyliu.widget.unit5Lsn1SharePreferences;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatEditText;
+import androidx.appcompat.widget.AppCompatTextView;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -9,6 +10,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.SpannedString;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -24,6 +26,7 @@ public class SharePreferencesActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getName();
 
     private AppCompatEditText usernameEdit, passwordEdit;
+    private AppCompatTextView loginStatusTxt;
     private int READ = 0;
     private int WRITE = 1;
 
@@ -34,11 +37,24 @@ public class SharePreferencesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_share_preferences);
 
         findView();
+        initLogin();
+    }
+
+    /**
+     * 自动填充用户名和密码
+     */
+    private void initLogin() {
+        SharedPreferences user_login = this.getSharedPreferences("user_login", MODE_PRIVATE);
+        String username = user_login.getString("username", "");
+        String password = user_login.getString("password", "");
+        usernameEdit.setText(username);
+        passwordEdit.setText(password);
     }
 
     private void findView() {
         usernameEdit = (AppCompatEditText) this.findViewById(R.id.edit_username);
         passwordEdit = (AppCompatEditText) this.findViewById(R.id.edit_password);
+        loginStatusTxt = (AppCompatTextView) this.findViewById(R.id.txt_login_status);
     }
 
 
@@ -53,7 +69,7 @@ public class SharePreferencesActivity extends AppCompatActivity {
         String password = user.getString("password", "123");
         String stu_no = user.getString("stu_no", "666");
         Log.d(TAG, "onCreate: ====username:" + username
-                + ", password:" + password+ ", stu_no:" + stu_no);
+                + ", password:" + password + ", stu_no:" + stu_no);
     }
 
 
@@ -160,6 +176,88 @@ public class SharePreferencesActivity extends AppCompatActivity {
             case R.id.btn_readsp: // 读sharepreference的内容
                 readSharePerferences();
                 break;
+            case R.id.btn_login: // 模拟登录
+                login();
+                break;
+            case R.id.btn_edit_password: // 修改密码
+                editPassword();
+                break;
         }
+    }
+
+    /**
+     * 修改密码
+     */
+    private void editPassword() {
+        // 输入新旧密码
+        String old_password = usernameEdit.getText().toString();
+        String password = passwordEdit.getText().toString();
+        if (old_password.isEmpty()) {
+            Toast.makeText(this, "请输入旧密码。", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (password.isEmpty()) {
+            Toast.makeText(this, "请输入新密码。", Toast.LENGTH_LONG).show();
+            return;
+        }
+        // 获取正确的密码
+        SharedPreferences user = this.getSharedPreferences("user", MODE_PRIVATE);
+        String right_password = user.getString("password", "");
+
+        // 旧密码验证
+        if (!old_password.equals(right_password)) {
+            Toast.makeText(this, "修改失败，旧密码错误。", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (!old_password.equals(password)) {
+            Toast.makeText(this, "修改失败，新密码不能和旧密码相同。", Toast.LENGTH_LONG).show();
+            return;
+        }
+        SharedPreferences.Editor editor = user.edit();
+        editor.putString("password", password);
+        editor.commit();
+        Toast.makeText(this, "密码修改成功。", Toast.LENGTH_LONG).show();
+    }
+
+    /**
+     * 模拟用户登录
+     */
+    private void login() {
+        String username = usernameEdit.getText().toString();
+        String password = passwordEdit.getText().toString();
+        if (username.isEmpty()) { // 用户名不允许为空
+            Toast.makeText(this, "请输入用户名。", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (password.isEmpty()) {
+            Toast.makeText(this, "请输入密码。", Toast.LENGTH_LONG).show();
+            return;
+        }
+        SharedPreferences user = this.getSharedPreferences("user", MODE_PRIVATE);
+        String right_username = user.getString("username", "");
+        String right_password = user.getString("password", "");
+
+        if (!username.equals(right_username)) {
+            Toast.makeText(this, "用户名错误，请输入正确的用户名。", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (!password.equals(right_password)) {
+            Toast.makeText(this, "密码错误，请输入正确的密码。", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        SharedPreferences user_login = this.getSharedPreferences("user_login", MODE_PRIVATE);
+        SharedPreferences.Editor editor = user_login.edit();
+        editor.putString("username", username);
+        editor.putString("password", password);
+        editor.commit();
+
+        Toast.makeText(this, "登录成功。", Toast.LENGTH_LONG).show();
+        usernameEdit.setVisibility(View.GONE);
+        passwordEdit.setVisibility(View.GONE);
+
+        SpannedString spannedString = new SpannedString(username + ",欢迎您。");
+        loginStatusTxt.setText(spannedString);
+
     }
 }

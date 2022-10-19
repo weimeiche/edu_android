@@ -96,17 +96,24 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     // 将数据与界面进行绑定操作
-    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         if (getItemViewType(position) == TYPE_NORMAL) {
             // 这里加载数据的时候注意，是从position-1开始，因为position==0已经被header占用了
             int index = mHeaderView == null ? position : position - 1;
             holder.imageView.setImageDrawable(mContext.getResources().getDrawable(mList.get(index).getSrc(), null));
             holder.textview.setText(mList.get(index).getUsername());
             holder.remarkTxt.setText(mList.get(index).getRemark());
+
+            holder.textview.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mOnRecyclerItemClickListener.onItemListener(holder.textview,index);
+                }
+            });
             holder.imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mOnRecyclerItemClickListener.onItemListener(holder.imageView, position);
+                    mOnRecyclerItemClickListener.onItemListener(holder.imageView,index);
                 }
             });
         }
@@ -141,6 +148,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         }
     }
 
+    /**
+     * 绑定事件监听的接口 开始
+     */
     private OnRecyclerItemClickListener mOnRecyclerItemClickListener = null;
 
     public void setOnRecyclerItemListener(OnRecyclerItemClickListener listener) {
@@ -150,4 +160,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     public interface OnRecyclerItemClickListener {
         void onItemListener(View view, int position);
     }
+    /**
+     * 绑定事件监听的接口 结束
+     */
 }

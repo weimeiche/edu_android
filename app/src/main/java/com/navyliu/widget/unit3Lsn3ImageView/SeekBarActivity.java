@@ -24,11 +24,25 @@ public class SeekBarActivity extends AppCompatActivity {
         seekBar = (SeekBar) this.findViewById(R.id.sb);
         resultTxt = (AppCompatTextView) this.findViewById(R.id.txt_result);
 
+//        seekBar.setMin();
+//        seekBar.setMax();
 
+        /**
+         * 给SeekBar控件绑定监听 步骤：
+         * 1、通过findViewId 获取控件
+         * 2、通过setOnSeekBarChangeListener 去绑定监听
+         */
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            /**
+             * 滑动条的进度被改变的时候触发该方法
+             * @param seekBar 进度被改变的这个进度条
+             * @param progress 当前进度，即改变之后进度
+             * @param fromUser
+             */
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 Log.d(TAG, "onProgressChanged: ======" + progress);
+                // 要小数点的话，可以先将max放大以后在缩小
                 resultTxt.setText("当前进度为：" + progress + "%");
             }
 

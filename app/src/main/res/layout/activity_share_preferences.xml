@@ -25,14 +25,21 @@
         app:layout_constraintLeft_toLeftOf="@id/edit_username"
         app:layout_constraintTop_toBottomOf="@id/edit_username" />
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_login_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_password" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onclick"
         android:text="保存到文件"
-        app:layout_constraintLeft_toLeftOf="@id/edit_password"
-        app:layout_constraintTop_toBottomOf="@id/edit_password" />
+        app:layout_constraintLeft_toLeftOf="@id/txt_login_status"
+        app:layout_constraintTop_toBottomOf="@id/txt_login_status" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_read_file"
@@ -42,7 +49,7 @@
         android:onClick="onclick"
         android:text="读取文件中的内容"
         app:layout_constraintLeft_toRightOf="@id/btn_save"
-        app:layout_constraintTop_toBottomOf="@id/edit_password" />
+        app:layout_constraintTop_toBottomOf="@id/txt_login_status" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_sd"
@@ -79,6 +86,33 @@
         android:text="从sharepreferences中读数据"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_write_sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onclick"
+        android:text="登录"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_readsp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onclick"
+        android:text="登录"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_readsp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_edit_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onclick"
+        android:text="修改密码"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_login" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

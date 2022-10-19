@@ -295,6 +295,7 @@ public class ListenerActivity extends AppCompatActivity
     }
 
 
+
     private class MyTextWatcher implements TextWatcher {
 
         /**

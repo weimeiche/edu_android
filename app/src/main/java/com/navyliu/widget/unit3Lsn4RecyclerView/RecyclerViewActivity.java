@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Toast;
 
 import com.navyliu.widget.R;
 import com.navyliu.widget.unit3Lsn4RecyclerView.swipeToLoadLayout.OnLoadMoreListener;
@@ -25,6 +26,7 @@ public class RecyclerViewActivity extends AppCompatActivity
     private View mHeaderView;
     private View mFooterView;
     ArrayList<RecyclerBean> starList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +46,7 @@ public class RecyclerViewActivity extends AppCompatActivity
                 , "黄晓明，1977年11月13日生于山东省青岛市市南区，中国内地男演员、歌手，毕业于北京电影学院表演系。1998年主演个人首部都市剧《爱情不是游戏》，从而进入演艺圈。2001年凭借主演古装剧《大汉天子》获得关注。2005年起连续10年入选“福布斯中国名人榜”。2006年主演武侠剧《神雕侠侣》。"
                 , "倪妮，1988年8月8日出生于江苏省南京市，中国内地女演员，毕业于南京传媒学院语言传播系。2011年，因出演战争史诗电影《金陵十三钗》女主角玉墨一角而进入演艺圈，并凭借此片获得第六届亚洲电影大奖最佳新演员等多个奖项。2013年，主演爱情悬疑电影《杀戒》、爱情电影《我想和你好好的》及治愈系电影《等风来》。"
         };
-         starList = new ArrayList<RecyclerBean>();
+        starList = new ArrayList<RecyclerBean>();
         RecyclerBean starBean;
         for (int i = 0; i < 15; i++) {
             starBean = new RecyclerBean();
@@ -88,8 +90,15 @@ public class RecyclerViewActivity extends AppCompatActivity
         adapter.setOnRecyclerItemListener(new RecyclerAdapter.OnRecyclerItemClickListener() {
             @Override
             public void onItemListener(View view, int position) {
-                switch (view.getId()){
-                    case R.id.img_icon: // 获取控件id，判断是点击的哪一个控件
+                switch (view.getId()) {
+                    case R.id.image:
+                        RecyclerBean recyclerBean = starList.get(position);
+                        recyclerBean.setUsername("asdfasdfasdf");
+                        starList.set(position,recyclerBean);
+                        adapter.notifyDataSetChanged();
+                        break;
+                    case R.id.textview:
+                        Toast.makeText(RecyclerViewActivity.this, starList.get(position).getUsername() + " 的名字", Toast.LENGTH_LONG).show();
                         break;
                 }
             }
