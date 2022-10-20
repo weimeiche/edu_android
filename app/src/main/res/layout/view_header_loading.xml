@@ -14,8 +14,20 @@
             style="@style/loading"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:indeterminateDrawable="@drawable/loading"
             android:layout_centerVertical="true"
             android:layout_gravity="center" />
+
+<!--        <item name="android:indeterminateDrawable">@drawable/loading</item>-->
+<!--        <item name="android:windowFrame">@null</item>        &lt;!&ndash; 边框 &ndash;&gt;-->
+<!--        <item name="android:windowIsFloating">true</item>        &lt;!&ndash; 是否浮现在activity之上 &ndash;&gt;-->
+<!--        <item name="android:windowIsTranslucent">false</item>        &lt;!&ndash; 半透明 &ndash;&gt;-->
+<!--        <item name="android:windowNoTitle">true</item>        &lt;!&ndash; 无标题 &ndash;&gt;-->
+<!--        <item name="android:windowBackground">@color/transparent</item>        &lt;!&ndash; 背景透明 &ndash;&gt;-->
+<!--        <item name="android:backgroundDimEnabled">@color/bg_dialog</item>        &lt;!&ndash; 模糊 &ndash;&gt;-->
+<!--        <item name="android:backgroundDimAmount">0.5</item>-->
+<!--        <item name="android:windowFullscreen">true</item>-->
+
 
         <TextView
             android:id="@+id/txt_header_refresh"

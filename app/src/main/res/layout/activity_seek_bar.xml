@@ -6,12 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".unit3Lsn3ImageView.SeekBarActivity">
 
+
     <androidx.appcompat.widget.AppCompatSeekBar
         android:id="@+id/sb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:max="1000"
         android:progress="500"
+        android:secondaryProgress="800"
         android:min="400"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

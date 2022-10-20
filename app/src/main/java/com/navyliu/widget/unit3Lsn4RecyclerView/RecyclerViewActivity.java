@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +23,7 @@ import java.util.ArrayList;
 public class RecyclerViewActivity extends AppCompatActivity
         implements OnRefreshListener, OnLoadMoreListener {
 
+    private static final int adsas = 1;
     private SwipeToLoadLayout swipeToLoadLayout;
     private RecyclerView recyclerView;
     private View mHeaderView;

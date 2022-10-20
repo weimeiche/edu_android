@@ -34,6 +34,7 @@
                 android:id="@+id/raido_xiaosan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/radiobutton_style"
                 android:text="唐三" />
 
             <RadioButton

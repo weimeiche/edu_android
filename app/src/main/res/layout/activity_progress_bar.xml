@@ -8,21 +8,50 @@
 
     <ProgressBar
         android:id="@+id/pb_small"
-        style="@style/TextAppearance.AppCompat.Small"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
+        android:id="@+id/pb_normal"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:indeterminate="false"
-        android:max="100"
-        android:progress="50"
-        android:secondaryProgress="80"
+        android:max="10000"
+        android:progress="700"
+        android:secondaryProgress="90"
         app:layout_constraintLeft_toLeftOf="@id/pb_small"
         app:layout_constraintTop_toBottomOf="@id/pb_small" />
 
+    <ProgressBar
+        android:id="@+id/pb"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:max="100"
+        android:progress="70"
+        android:secondaryProgress="90"
+        app:layout_constraintLeft_toLeftOf="@id/pb_normal"
+        app:layout_constraintTop_toBottomOf="@id/pb_normal" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_max"
+        android:layout_width="wrap_content"
+        android:onClick="onclick"
+        android:layout_height="wrap_content"
+        android:text="设置最大值为1000"
+        app:layout_constraintLeft_toLeftOf="@id/pb_normal"
+        app:layout_constraintTop_toBottomOf="@id/pb" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_get_max"
+        android:layout_width="wrap_content"
+        android:onClick="onclick"
+        android:layout_height="wrap_content"
+        android:text="获取进度的最大值"
+        app:layout_constraintLeft_toLeftOf="@id/btn_max"
+        app:layout_constraintTop_toBottomOf="@id/btn_max" />
 </androidx.constraintlayout.widget.ConstraintLayout>

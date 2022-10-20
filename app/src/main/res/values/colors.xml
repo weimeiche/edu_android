@@ -12,7 +12,6 @@
     <color name="transparent">#00000000</color>
     <color name="bg_dialog">#55000000</color>
 
-
     <color name="red">#ff0000</color>
 
     <!--    color 的值使用三原色来表示，不区分大小写-->

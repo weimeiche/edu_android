@@ -7,13 +7,32 @@
     tools:context=".unit3Lsn3ImageView.RatingBarActivity">
 
     <androidx.appcompat.widget.AppCompatRatingBar
+        android:id="@+id/ratingbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:numStars="5"
+        android:isIndicator="false"
+        android:numStars="6"
         android:rating="3"
-        android:id="@+id/ratingbar"
-        android:stepSize="0.1"
+        android:stepSize="2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.appcompat.widget.AppCompatRatingBar
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:isIndicator="false"
+        android:rating="2.2"
+        android:stepSize="0.5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ratingbar" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_numstar"
+        android:text="设置为7颗星"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:onClick="onclick"
+        app:layout_constraintTop_toBottomOf="@id/rating" />
 </androidx.constraintlayout.widget.ConstraintLayout>

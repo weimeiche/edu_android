@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".unit3Lsn3ImageView.SwitchActivity">
+\
 
     <Switch
         android:id="@+id/btn_switch"
@@ -14,7 +15,7 @@
         android:splitTrack="true"
         android:switchMinWidth="100dp"
         android:switchPadding="50dp"
-        android:textOff="关闭"
+        android:textOff="关闭1"
         android:textOn="打开"
         android:thumb="@mipmap/emoji_9"
         android:track="@drawable/bg_btn"

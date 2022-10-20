@@ -46,11 +46,19 @@ public class SeekBarActivity extends AppCompatActivity {
                 resultTxt.setText("当前进度为：" + progress + "%");
             }
 
+            /**
+             * 开始接触SeekBar的时候回调， 手指按下的时候触发
+             * @param seekBar
+             */
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
 
             }
 
+            /**
+             * 结束接触SeekBar的时候回调， 手指松开的时候触发
+             * @param seekBar
+             */
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
 

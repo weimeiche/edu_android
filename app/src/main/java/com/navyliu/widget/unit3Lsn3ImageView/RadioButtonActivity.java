@@ -49,7 +49,7 @@ public class RadioButtonActivity extends AppCompatActivity implements CompoundBu
                 Toast.makeText(RadioButtonActivity.this, "当前选中的是：" + str, Toast.LENGTH_LONG).show();
                 Log.d(TAG, "onCheckedChanged: =========radioGroup.getChildCount())======" + radioGroup.getChildCount());
                 Log.d(TAG, "onCheckedChanged: ==================R.id.raido_xiaosan=========" + R.id.raido_xiaosan);
-                RadioButton btn = (RadioButton) radioGroup.getChildAt(1);
+                RadioButton btn = (RadioButton) radioGroup.getChildAt(1); // 索引号
                 Log.d(TAG, "onCheckedChanged: ===================radioGroup.getChildAt(1).getId()========" + btn.getId());
 
                 if (btn.isChecked()) {
